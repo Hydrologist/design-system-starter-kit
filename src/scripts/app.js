@@ -85,3 +85,133 @@ Array.from(defaultTabs).forEach((tab) => {
 Array.from(scopedTabs).forEach((tab) => {
   tab.addEventListener('click', assignTabEvents, false)
 })
+
+const ptclick = () => {
+  document.getElementById("pt-tab").classList.add('slds-is-active');
+  document.getElementById("pu-tab").classList.remove('slds-is-active');
+  document.getElementById("sh-tab").classList.remove('slds-is-active');
+  document.getElementById("tab-default-1").classList.add('slds-show');
+  document.getElementById("tab-default-1").classList.remove('slds-hide');
+  document.getElementById("tab-default-2").classList.add('slds-hide');
+  document.getElementById("tab-default-2").classList.remove('slds-show');
+  document.getElementById("tab-default-3").classList.add('slds-hide');
+  document.getElementById("tab-default-3").classList.remove('slds-show');
+}
+
+const puclick = () => {
+  document.getElementById("pt-tab").classList.remove('slds-is-active');
+  document.getElementById("pu-tab").classList.add('slds-is-active');
+  document.getElementById("sh-tab").classList.remove('slds-is-active');
+  document.getElementById("tab-default-1").classList.remove('slds-show');
+  document.getElementById("tab-default-1").classList.add('slds-hide');
+  document.getElementById("tab-default-2").classList.remove('slds-hide');
+  document.getElementById("tab-default-2").classList.add('slds-show');
+  document.getElementById("tab-default-3").classList.add('slds-hide');
+  document.getElementById("tab-default-3").classList.remove('slds-show');
+}
+
+const shclick = () => {
+  document.getElementById("pt-tab").classList.remove('slds-is-active');
+  document.getElementById("pu-tab").classList.remove('slds-is-active');
+  document.getElementById("sh-tab").classList.add('slds-is-active');
+  document.getElementById("tab-default-1").classList.remove('slds-show');
+  document.getElementById("tab-default-1").classList.add('slds-hide');
+  document.getElementById("tab-default-2").classList.add('slds-hide');
+  document.getElementById("tab-default-2").classList.remove('slds-show');
+  document.getElementById("tab-default-3").classList.remove('slds-hide');
+  document.getElementById("tab-default-3").classList.add('slds-show');
+}
+
+const loremselect = () => {
+  document.getElementById("lorem-pricing").classList.remove('slds-hide');
+  document.getElementById("lorem-pricing").classList.add('slds-show');
+  document.getElementById("generic-pricing").classList.remove('slds-show');
+  document.getElementById("generic-pricing").classList.add('slds-hide');
+}
+
+const genericselect = () => {
+  document.getElementById("lorem-pricing").classList.remove('slds-show');
+  document.getElementById("lorem-pricing").classList.add('slds-hide');
+  document.getElementById("generic-pricing").classList.remove('slds-hide');
+  document.getElementById("generic-pricing").classList.add('slds-show');
+}
+
+const manageclick = () => {
+  document.getElementById("manage-button").classList.remove('slds-button_neutral');
+  document.getElementById("manage-button").classList.add('slds-button_brand');
+  document.getElementById("manage-page").classList.add('slds-show');
+  document.getElementById("manage-page").classList.remove('slds-hide');
+  document.getElementById("visualize-button").classList.remove('slds-button_brand');
+  document.getElementById("visualize-button").classList.add('slds-button_neutral');
+  document.getElementById("visualize-page").classList.remove('slds-show');
+  document.getElementById("visualize-page").classList.add('slds-hide');
+  document.getElementById("select-button").classList.remove('slds-button_brand');
+  document.getElementById("select-button").classList.add('slds-button_neutral');
+}
+
+const visualizeclick = () => {
+  document.getElementById("manage-button").classList.remove('slds-button_brand');
+  document.getElementById("manage-button").classList.add('slds-button_neutral');
+  document.getElementById("manage-page").classList.remove('slds-show');
+  document.getElementById("manage-page").classList.add('slds-hide');
+  document.getElementById("visualize-button").classList.remove('slds-button_neutral');
+  document.getElementById("visualize-page").classList.add('slds-show');
+  document.getElementById("visualize-page").classList.remove('slds-hide');
+  document.getElementById("visualize-button").classList.add('slds-button_brand');
+  document.getElementById("select-button").classList.remove('slds-button_brand');
+  document.getElementById("select-button").classList.add('slds-button_neutral');
+}
+
+const v1select = () => {
+  document.getElementById("loremline").classList.add('slds-text-color_inverse');
+  document.getElementById("loremline").classList.remove('slds-text-color_default');
+  document.getElementById("loremline").style.backgroundColor = "rgb(0, 112, 210)";
+  document.getElementById("vlorem").classList.add("slds-show");
+  document.getElementById("vlorem").classList.remove("slds-hide");
+  document.getElementById("basketline").classList.add('slds-text-color_default');
+  document.getElementById("basketline").classList.remove('slds-text-color_inverse');
+  document.getElementById("basketline").style.backgroundColor = "rgb(216, 237, 255)";
+  document.getElementById("vbasket").classList.remove("slds-show");
+  document.getElementById("vbasket").classList.add("slds-hide");
+  document.getElementById("genericline").classList.add('slds-text-color_default');
+  document.getElementById("genericline").classList.remove('slds-text-color_inverse');
+  document.getElementById("genericline").style.backgroundColor = "rgb(216, 237, 255)";
+  document.getElementById("vgeneric").classList.remove("slds-show");
+  document.getElementById("vgeneric").classList.add("slds-hide");
+}
+
+const v2select = () => {
+  document.getElementById("loremline").classList.remove('slds-text-color_inverse');
+  document.getElementById("loremline").classList.add('slds-text-color_default');
+  document.getElementById("basketline").style.backgroundColor = "rgb(0, 112, 210)";
+  document.getElementById("vlorem").classList.remove("slds-show");
+  document.getElementById("vlorem").classList.add("slds-hide");
+  document.getElementById("basketline").classList.remove('slds-text-color_default');
+  document.getElementById("basketline").classList.add('slds-text-color_inverse');
+  document.getElementById("loremline").style.backgroundColor = "rgb(216, 237, 255)";
+  document.getElementById("vbasket").classList.add("slds-show");
+  document.getElementById("vbasket").classList.remove("slds-hide");
+  document.getElementById("genericline").classList.add('slds-text-color_default');
+  document.getElementById("genericline").classList.remove('slds-text-color_inverse');
+  document.getElementById("genericline").style.backgroundColor = "rgb(216, 237, 255)";
+  document.getElementById("vgeneric").classList.remove("slds-show");
+  document.getElementById("vgeneric").classList.add("slds-hide");
+}
+
+const v3select = () => {
+  document.getElementById("loremline").classList.remove('slds-text-color_inverse');
+  document.getElementById("loremline").classList.add('slds-text-color_default');
+  document.getElementById("genericline").style.backgroundColor = "rgb(0, 112, 210)";
+  document.getElementById("vlorem").classList.remove("slds-show");
+  document.getElementById("vlorem").classList.add("slds-hide");
+  document.getElementById("basketline").classList.add('slds-text-color_default');
+  document.getElementById("basketline").classList.remove('slds-text-color_inverse');
+  document.getElementById("basketline").style.backgroundColor = "rgb(216, 237, 255)";
+  document.getElementById("vbasket").classList.remove("slds-show");
+  document.getElementById("vbasket").classList.add("slds-hide");
+  document.getElementById("genericline").classList.remove('slds-text-color_default');
+  document.getElementById("genericline").classList.add('slds-text-color_inverse');
+  document.getElementById("loremline").style.backgroundColor = "rgb(216, 237, 255)";
+  document.getElementById("vgeneric").classList.add("slds-show");
+  document.getElementById("vgeneric").classList.remove("slds-hide");
+}
