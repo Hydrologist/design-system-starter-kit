@@ -41,3 +41,41 @@ $static-font-path: '/assets/fonts/webfonts';
   left: 0;
 }
 
+.opportunity-timeline {
+  border-bottom: 3px solid rgb(21, 137, 238);
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-top: 3px solid transparent;
+}
+
+.opportunity-timeline-active {
+  border: 3px solid rgb(21, 137, 238); 
+}
+
+.non-sub-timeline:before {
+  content:"";
+  border-left: 3px solid rgba(21,137,238,0.4);
+  border-top: 3px solid rgba(21,137,238,0.4);
+  border-bottom: 3px solid rgba(21,137,238,0.4);
+  margin-right: 0px;
+  padding: 0 3px;
+}
+
+.non-sub-timeline-active:before {
+  content:"";
+  border-left: 3px solid rgb(21, 137, 238);
+  border-top: 3px solid rgb(21, 137, 238);
+  border-bottom: 3px solid rgb(21, 137, 238);
+  margin-right: 0px;
+  padding: 0 3px;
+}
+
+.non-sub-timeline-active:after {
+  content:"";
+  border-right: 3px solid rgb(21, 137, 238);
+  border-top: 3px solid rgb(21, 137, 238);
+  border-bottom: 3px solid rgb(21, 137, 238);
+  margin-left: 0px;
+  padding: 0 3px;
+}
+
