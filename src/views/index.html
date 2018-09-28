@@ -118,7 +118,7 @@
       </ul>
     </article>
     <!-- Visualize Products Page -- !VPP -->
-    <article id="visualize-page" class="slds-hide">
+    <article id="visualize-page" class="slds-show">
       <div class="slds-grid slds-wrap">
         <div class="slds-col slds-size_1-of-1 slds-m-bottom--x-small">
           <article class="slds-card" style="position:relative; overflow: hidden;">
@@ -134,7 +134,7 @@
               <!-- Visualize Products Timeline -- !VPT -->
               <div id="timeline" class="slds-grid slds-grid_vertical-align-start slds-grid_align-end slds-wrap slds-scrollable_y slds-m-top--large" style="height: 10rem; position: relative; z-index: 1;">
                 <div class="slds-col slds-size_1-of-1 slds-m-bottom--small" style="position: sticky; top: 0;">
-                  <div id="oppline" style="box-shadow: 1px 2px 3px rgb(174, 174, 174); background-color:white; border: 3px solid rgb(21, 137, 238); height: 1.5rem;" class="slds-m-horizontal--x-small slds-text-align--center slds-text-title_caps slds-grid slds-grid_align-spread">
+                  <div id="oppline" style="height: 1.5rem;" class="opportunity-timeline slds-m-horizontal--x-small slds-text-align--center slds-text-title_caps slds-grid slds-grid_align-spread">
                     <div class="slds-col slds-text-color_default slds-text-title_caps slds-m-left--xx-small">
                       9/21/2018
                     </div>
@@ -147,7 +147,7 @@
                   </div>
                 </div>
                 <div class="slds-col slds-size_1-of-1 slds-m-bottom--medium">
-                  <div id="loremline" style="box-shadow: 1px 2px 3px rgb(174, 174, 174); background-color: rgb(0, 112, 210); height: 1.5rem;" class="slds-text-color_inverse slds-text-title_caps slds-m-horizontal--x-small slds-text-align_center slds-grid slds-grid_align-spread">
+                  <div id="loremline" style="padding: 0 3px 0 3px; box-shadow: 1px 2px 3px rgb(174, 174, 174); background-color: rgb(0, 112, 210); height: 1.5rem;" class="slds-text-color_inverse slds-text-title_caps slds-m-horizontal--x-small slds-text-align_center slds-grid slds-grid_align-spread">
                     <div class="slds-col slds-m-left--xx-small slds-m-top--xx-small">
                       9/21/2018
                     </div>
@@ -172,9 +172,9 @@
                     </div>
                   </div>
                 </div>
-                <div class="slds-col slds-size_1-of-1 slds-m-bottom--medim">
-                  <div id="genericline" style="box-shadow: 1px 2px 3px rgb(174, 174, 174); background-color: rgb(216, 237, 255); height: 1.5rem;" class="slds-text-color_default slds-text-title_caps slds-p-top--xx-small slds-m-horizontal--x-small slds-text-align_center">
-                    <div>
+                <div class="slds-col slds-size_1-of-1">
+                  <div style="height: 1.5rem;" class="slds-text-color_default slds-text-title_caps slds-p-top--xx-small slds-p-left--xx-small slds-m-horizontal--x-small slds-text-align_start">
+                    <div id="genericline" class="non-sub-timeline">
                       Perfectly Generic Object | Qty: 2 | $400.00
                     </div>
                   </div>
@@ -183,14 +183,63 @@
             </div>
           </article>
         </div>
-        <div class="slds-col slds-size_1-of-2 slds-p-right--xx-small">
+        <div class="slds-col slds-size_2-of-3 slds-p-right--xx-small">
           <article class="slds-card slds-m-bottom--small" style="position:relative; overflow: hidden;">
             <div class="slds-grid slds-wrap slds-grid_align-spread">
               <div class="slds-col slds-size_1-of-1 slds-scrollable_x">
                 <table class="slds-table slds-table_cell-buffer slds-table_bordered">
                   <thead>
                     <th style="width:3.5rem;"></th>
+                    <th class="slds-line-height_reset" style="width: 20rem;">
+                      <div class="slds-text-title_caps" scope="col">
+                        <div class="slds-truncate" title="Opportunity">Opportunity</div>
+                      </div>
+                    </th>
                     <th class="slds-line-height_reset">
+                      <div class="slds-text-title_caps" scope="col">
+                        <div class="slds-truncate" title="Start Date">Start Date</div>
+                      </div>
+                    </th>
+                    <th class="slds-line-height_reset">
+                      <div class="slds-text-title_caps" scope="col">
+                        <div class="slds-truncate" title="End Date">End Date</div>
+                      </div>
+                    </th>
+                    <th class="slds-line-height_reset">
+                      <div class="slds-text-title_caps" scope="col">
+                        <div class="slds-truncate slds-text-align_right" title="Term">Term</div>
+                      </div>
+                    </th>
+                  </thead>
+                  <tbody>
+                    <tr class="slds-hint-parent">
+                      <td class="slds-text-align_center">
+                        <span class="slds-radio">
+                          <input id="vradio-4" name="vproducts" value="vradio-4" type="radio" onclick="oppselect();" />
+                          <label class="slds-radio__label" for="vradio-4">
+                            <span class="slds-radio_faux"></span>
+                          </label>
+                        </span>
+                      </td>
+                      <th data-label="Opportunity" scope="row">
+                        <div class="slds-truncate" title="Lipsum - Renewal - 2019">Lipsum - Renewal - 2019</div>
+                      </th>
+                      <td data-label="Start Date">
+                        <div class="slds-truncate" title="9/21/2018">9/21/2018</div>
+                      </td>
+                      <td data-label="End Date" scope="row">
+                        <div class="slds-truncate" title="9/20/2019">9/20/2019</div>
+                      </td>
+                      <td data-label="Term">
+                        <div class="slds-truncate slds-text-align_right" title="12">12</div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                  <thead>
+                    <th style="width:3.5rem;"></th>
+                    <th class="slds-line-height_reset" style="width: 20rem;">
                       <div class="slds-text-title_caps" scope="col">
                         <div class="slds-truncate" title="Product">Product</div>
                       </div>
@@ -284,7 +333,7 @@
             </div>
           </article>
         </div>
-        <div class="slds-col slds-size_1-of-2 slds-p-left--xx-small" style="height:400px;">
+        <div class="slds-col slds-size_1-of-3 slds-p-left--xx-small" style="height:400px;">
           <article class="slds-card slds-m-bottom--small" style="position:relative; overflow: hidden; height: 400px;">
             <div class="slds-card__body slds-card__body_inner">
               <!-- Lorem Ipsum Product Detail -- !LIPD -->
@@ -1402,7 +1451,7 @@
                   </li>
                 </ul>
                 <!-- Pricing Tables Content -- !PTC -->
-                <div id="tab-default-1" class="slds-tabs_default__content slds-show slds-p-horizontal--x-small" role="tabpanel" aria-labelledby="tab-default-1__item">
+                <div id="tab-default-1" class="slds-tabs_default__content slds-show" role="tabpanel" aria-labelledby="tab-default-1__item">
                   <div class="slds-grid slds-wrap slds-grid_align-spread">
                     <div class="slds-col slds-size_1-of-1 slds-border_bottom slds-p-bottom--small">
                       <div style="text-align: center;" class="slds-text-heading--large">
@@ -1552,22 +1601,11 @@
                               <div class="slds-truncate  slds-text-align_right" title="$1000.00">$1000.00</div>
                             </td>
                           </tr>
-                          <tr class="slds-hint-parent">
+                          <tr class="slds-hint-parent" style="background-color: blanchedalmond;">
                             <th data-label="Product" scope="row">
                               <div class="slds-truncate slds-text-align_center" title="Super Lorem Ipsum">Lorem Ipsum</div>
                             </th>
                             <td data-label="Recommendation">
-                              <div class="slds-truncate slds-text-align_center" title="Recommended">
-                                <div style="border-radius: .5rem; border: 1px solid grey;">
-                                  <span class="slds-text-color_default">Current</span>
-                                  <span class="slds-icon_container slds-icon-utility-dash" title="Recommended">
-                                    <svg class="slds-icon slds-icon-text-default slds-icon_xx-small" aria-hidden="true">
-                                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#dash"></use>
-                                    </svg>
-                                    <span class="slds-assistive-text">Current</span>
-                                  </span>
-                                </div>
-                              </div>
                             </td>
                             <td data-label="List Price" scope="row">
                               <div class="slds-truncate  slds-text-align_right" title="$600.00">$600.00</div>
@@ -1578,17 +1616,6 @@
                               <div class="slds-truncate slds-text-align_center" title="Super Lorem Ipsum">Budget Lorem Ipsum</div>
                             </th>
                             <td data-label="Recommendation">
-                              <div class="slds-truncate slds-text-align_center" title="Recommended">
-                                <div style="border-radius: .5rem; border: 1px solid green;">
-                                  <span class="slds-text-color_success">Recommended</span>
-                                  <span class="slds-icon_container slds-icon-utility-level_up" title="Recommended">
-                                    <svg class="slds-icon slds-icon-text-success slds-icon_xx-small" aria-hidden="true">
-                                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#level_up"></use>
-                                    </svg>
-                                    <span class="slds-assistive-text">Recommended</span>
-                                  </span>
-                                </div>
-                              </div>
                             </td>
                             <td data-label="List Price" scope="row">
                               <div class="slds-truncate  slds-text-align_right" title="$300.00">$300.00</div>
@@ -1601,15 +1628,88 @@
                 </div>
                 <div id="tab-default-3" class="slds-tabs_default__content slds-hide" role="tabpanel" aria-labelledby="tab-default-3__item">
                   <div class="slds-grid slds-wrap slds-grid_align-spread">
-                    <div class="slds-col slds-size_1-of-1 slds-border_bottom slds-p-bottom--small slds-m-bottom--small">
+                    <div class="slds-col slds-size_1-of-1 slds-p-bottom--small">
                       <div style="text-align: center;" class="slds-text-heading--large">
-                        Sales History
+                        Sales History for Lorem Ipsum
                       </div>
                     </div>
-                    <div class="slds-col slds-size_1-of-1">
-                      <div style="text-align: center;" class="slds-text-heading--medium">
-                        There is no sales history for this product.
-                      </div>
+                    <div class="slds-col slds-size_1-of-1 slds-scrollable_x">
+                      <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                        <thead>
+                          <th class="slds-line-height_reset">
+                            <div class="slds-text-title_caps" scope="col">
+                              <div class="slds-truncate slds-text-align_right" title="Discount Amount">Contract Effective Date</div>
+                            </div>
+                          </th>
+                          <th class="slds-line-height_reset">
+                            <div class="slds-text-title_caps" scope="col">
+                              <div class="slds-truncate slds-text-align_right" title="Discount Percent">Contract End Date</div>
+                            </div>
+                          </th>
+                          <th class="slds-line-height_reset">
+                            <div class="slds-text-title_caps" scope="col">
+                              <div class="slds-truncate slds-text-align_right" title="Tier Unit Price">Term</div>
+                            </div>
+                          </th>
+                          <th class="slds-line-height_reset">
+                            <div class="slds-text-title_caps" scope="col">
+                              <div class="slds-truncate slds-text-align_right" title="Tier Unit Price">Unit Price</div>
+                            </div>
+                          </th>
+                          <th class="slds-line-height_reset">
+                            <div class="slds-text-title_caps" scope="col">
+                              <div class="slds-truncate slds-text-align_right" title="Quantity">Quantity</div>
+                            </div>
+                          </th>
+                          <th class="slds-line-height_reset">
+                            <div class="slds-text-title_caps" scope="col">
+                              <div class="slds-truncate slds-text-align_right" title="Tier Unit Price">Total Price</div>
+                            </div>
+                          </th>
+                        </thead>
+                        <tbody>
+                          <tr class="slds-hint-parent">
+                            <td data-label="Contract Effective Date" scope="row">
+                              <div class="slds-truncate slds-text-align_right" title="9/21/2016">9/21/2016</div>
+                            </td>
+                            <td data-label="Contract End Date" scope="row">
+                              <div class="slds-truncate slds-text-align_right" title="9/20/2017">9/20/2017</div>
+                            </td>
+                            <td data-label="Term" scope="row">
+                              <div class="slds-truncate slds-text-align_right" title="12">12</div>
+                            </td>
+                            <td data-label="Unit Price">
+                              <div class="slds-truncate slds-text-align_right" title="$600.00/year">$600.00<span class="slds-text-body_small slds-text-color_weak"> / year</span></div>
+                            </td>
+                            <th data-label="Quantity" scope="row">
+                              <div class="slds-truncate slds-text-align_right" title="1">1</div>
+                            </th>
+                            <td data-label="Total Price">
+                              <div class="slds-truncate slds-text-align_right" title="$600.00/year">$18000.00<span class="slds-text-body_small slds-text-color_weak"> / year</span></div>
+                            </td>
+                          </tr>
+                          <tr class="slds-hint-parent">
+                            <td data-label="Contract Effective Date" scope="row">
+                              <div class="slds-truncate slds-text-align_right" title="9/21/2017">9/21/2017</div>
+                            </td>
+                            <td data-label="Contract End Date" scope="row">
+                              <div class="slds-truncate slds-text-align_right" title="9/20/2018">9/20/2018</div>
+                            </td>
+                            <td data-label="Term" scope="row">
+                              <div class="slds-truncate slds-text-align_right" title="12">12</div>
+                            </td>
+                            <td data-label="Unit Price">
+                              <div class="slds-truncate slds-text-align_right" title="$600.00/year">$600.00<span class="slds-text-body_small slds-text-color_weak"> / year</span></div>
+                            </td>
+                            <th data-label="Quantity" scope="row">
+                              <div class="slds-truncate slds-text-align_right" title="2">2</div>
+                            </th>
+                            <td data-label="Total Price">
+                              <div class="slds-truncate slds-text-align_right" title="$.00/year">$18000.00<span class="slds-text-body_small slds-text-color_weak"> / year</span></div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </div>
