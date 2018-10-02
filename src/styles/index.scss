@@ -79,3 +79,41 @@ $static-font-path: '/assets/fonts/webfonts';
   padding: 0 3px;
 }
 
+.recommendation-link:link, .recommendation-link:visited, .recommendation-link:hover, .recommendation-link:active {
+  text-decoration: none;
+}
+
+.recommendation-text {
+  font-weight: bold;
+}
+
+.recommended-button {
+  border-radius: .5rem; 
+  border: 1px solid rgb(4, 132, 75);
+  color: rgb(2, 126, 70);
+}
+
+.recommended-button:hover {
+  background-color: rgb(4, 132, 75);
+  color: white;
+}
+
+.recommended-button-active {
+  background-color: rgb(4, 132, 75);
+  color: white;
+}
+
+.downgrade-button {
+  border-radius: .5rem; 
+  border: 1px solid rgb(194, 57, 52);
+  color: rgb(194, 57, 52);
+}
+
+.downgrade-button:hover {
+  background-color: rgb(194, 57, 52);
+  color: white;
+}
+
+.blocked-downgrade {
+  color: rgb(194, 57, 52);
+}

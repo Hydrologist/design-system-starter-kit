@@ -127,6 +127,9 @@ const loremselect = () => {
   document.getElementById("lorem-pricing").classList.add('slds-show');
   document.getElementById("generic-pricing").classList.remove('slds-show');
   document.getElementById("generic-pricing").classList.add('slds-hide');
+  document.getElementById("upgrade-preview").classList.add('slds-hide');
+  document.getElementById("upgrade-preview").classList.remove('slds-show');
+  document.getElementById("recupgrade").classList.remove('recommended-button-active');
 }
 
 const genericselect = () => {
@@ -134,6 +137,19 @@ const genericselect = () => {
   document.getElementById("lorem-pricing").classList.add('slds-hide');
   document.getElementById("generic-pricing").classList.remove('slds-hide');
   document.getElementById("generic-pricing").classList.add('slds-show');
+  document.getElementById("upgrade-preview").classList.add('slds-hide');
+  document.getElementById("upgrade-preview").classList.remove('slds-show');
+  document.getElementById("recupgrade").classList.remove('recommended-button-active');
+}
+
+const upgradeselect = () => {
+  document.getElementById("lorem-pricing").classList.add('slds-hide');
+  document.getElementById("lorem-pricing").classList.remove('slds-show');
+  document.getElementById("generic-pricing").classList.remove('slds-show');
+  document.getElementById("generic-pricing").classList.add('slds-hide');
+  document.getElementById("upgrade-preview").classList.remove('slds-hide');
+  document.getElementById("upgrade-preview").classList.add('slds-show');
+  document.getElementById("recupgrade").classList.add('recommended-button-active');
 }
 
 const manageclick = () => {
@@ -246,3 +262,4 @@ const oppselect = () => {
   document.getElementById("oppline").classList.remove('opportunity-timeline');
   document.getElementById("oppline").classList.add('opportunity-timeline-active');
 }
+
