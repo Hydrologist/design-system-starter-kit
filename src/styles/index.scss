@@ -103,6 +103,10 @@ $static-font-path: '/assets/fonts/webfonts';
   color: rgb(2, 126, 70);
 }
 
+.edit-input {
+  width: 5rem;
+}
+
 .edit-cell:hover {
   background-color: white !important;
 }
