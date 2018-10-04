@@ -107,13 +107,13 @@
     <article class="slds-p-around--x-small slds-m-bottom--medium slds-card">
       <ul class="slds-button-group-row">
         <li class="slds-button-group-item">
+          <button id="select-button" class="slds-button slds-button_neutral">Select Products</button>
+        </li>
+        <li class="slds-button-group-item">
           <button id="manage-button" onclick="manageclick();" class="slds-button slds-button_brand">Manage Products</button>
         </li>
         <li class="slds-button-group-item">
           <button id="visualize-button" onclick="visualizeclick();" class="slds-button slds-button_neutral">Visualize Products</button>
-        </li>
-        <li class="slds-button-group-item">
-          <button id="select-button" class="slds-button slds-button_neutral">Select Products</button>
         </li>
       </ul>
     </article>
@@ -1025,28 +1025,16 @@
                     Lorem Ipsum -> Ultra Lorem Ipsum
                   </div>
                 </div>
-                <div class="slds-col slds-size_1-of-1 slds-grid">
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Current List Price
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $600.00<span class="slds-text-body_small slds-text-color_weak"> / month</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        New List Price
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $2000.00<span class="slds-text-body_small slds-text-color_weak"> / month</span>
-                        </div>
+                <div class="slds-col slds-size_1-of-1 slds-m-bottom--x-small">
+                  <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="basis-select">Base Price Adjustment</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-select_container">
+                        <select class="slds-select" id="select-01">
+                          <option>Reset to new List Price</option>
+                          <option>New List Price with Existing Adjustment</option>
+                          <option>Keep existing Base Price</option>
+                        </select>
                       </div>
                     </div>
                   </div>
