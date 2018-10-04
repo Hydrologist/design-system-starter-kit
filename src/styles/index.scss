@@ -44,13 +44,13 @@ $static-font-path: '/assets/fonts/webfonts';
 .opportunity-timeline {
   border-bottom: 3px solid rgb(0, 112, 210);
   height: 1.5rem;
+  padding-top: 3px;
 }
 
 .opportunity-timeline-active {
   background-color: rgb(0, 112, 210);
   border-bottom: 3px solid rgb(216,237,255);
   border-bottom-style: dashed;
-  padding-top: 3px;
   color: white;
 }
 
@@ -59,7 +59,6 @@ $static-font-path: '/assets/fonts/webfonts';
 }
 
 .sub-timeline {
-  padding: 0 3px 0 3px;
   box-shadow: 1px 2px 3px rgb(174, 174, 174);
   background-color: rgb(216,237,255);
   height: 1.5rem;
