@@ -179,87 +179,30 @@ const visualizeclick = () => {
 }
 
 const v1select = () => {
-  document.getElementById("loremline").classList.add('slds-text-color_inverse');
-  document.getElementById("loremline").classList.remove('slds-text-color_default');
-  document.getElementById("loremline").style.backgroundColor = "rgb(0, 112, 210)";
-  document.getElementById("vlorem").classList.add("slds-show");
-  document.getElementById("vlorem").classList.remove("slds-hide");
-  document.getElementById("basketline").classList.add('slds-text-color_default');
-  document.getElementById("basketline").classList.remove('slds-text-color_inverse');
-  document.getElementById("basketline").style.backgroundColor = "rgb(216, 237, 255)";
-  document.getElementById("vbasket").classList.remove("slds-show");
-  document.getElementById("vbasket").classList.add("slds-hide");
-  document.getElementById("genericline").classList.add('slds-text-color_default');
-  document.getElementById("genericline").classList.remove('slds-text-color_inverse');
-  document.getElementById("genericline").classList.add('non-sub-timeline');
+  document.getElementById("loremline").classList.add('sub-timeline-active');
+  document.getElementById("basketline").classList.remove('sub-timeline-active');
   document.getElementById("genericline").classList.remove('non-sub-timeline-active');
-  document.getElementById("vgeneric").classList.remove("slds-show");
-  document.getElementById("vgeneric").classList.add("slds-hide");
-  document.getElementById("oppline").classList.add('opportunity-timeline');
   document.getElementById("oppline").classList.remove('opportunity-timeline-active');
 }
 
 const v2select = () => {
-  document.getElementById("loremline").classList.remove('slds-text-color_inverse');
-  document.getElementById("loremline").classList.add('slds-text-color_default');
-  document.getElementById("basketline").style.backgroundColor = "rgb(0, 112, 210)";
-  document.getElementById("vlorem").classList.remove("slds-show");
-  document.getElementById("vlorem").classList.add("slds-hide");
-  document.getElementById("basketline").classList.remove('slds-text-color_default');
-  document.getElementById("basketline").classList.add('slds-text-color_inverse');
-  document.getElementById("loremline").style.backgroundColor = "rgb(216, 237, 255)";
-  document.getElementById("vbasket").classList.add("slds-show");
-  document.getElementById("vbasket").classList.remove("slds-hide");
-  document.getElementById("genericline").classList.add('slds-text-color_default');
-  document.getElementById("genericline").classList.remove('slds-text-color_inverse');
-  document.getElementById("genericline").classList.add('non-sub-timeline');
+  document.getElementById("loremline").classList.remove('sub-timeline-active');
+  document.getElementById("basketline").classList.add('sub-timeline-active');
   document.getElementById("genericline").classList.remove('non-sub-timeline-active');
-  document.getElementById("vgeneric").classList.remove("slds-show");
-  document.getElementById("vgeneric").classList.add("slds-hide");
-  document.getElementById("oppline").classList.add('opportunity-timeline');
   document.getElementById("oppline").classList.remove('opportunity-timeline-active');
 }
 
 const v3select = () => {
-  document.getElementById("loremline").classList.remove('slds-text-color_inverse');
-  document.getElementById("loremline").classList.add('slds-text-color_default');
-  //document.getElementById("genericline").style.backgroundColor = "rgb(0, 112, 210)";
-  document.getElementById("vlorem").classList.remove("slds-show");
-  document.getElementById("vlorem").classList.add("slds-hide");
-  document.getElementById("basketline").classList.add('slds-text-color_default');
-  document.getElementById("basketline").classList.remove('slds-text-color_inverse');
-  document.getElementById("basketline").style.backgroundColor = "rgb(216, 237, 255)";
-  document.getElementById("vbasket").classList.remove("slds-show");
-  document.getElementById("vbasket").classList.add("slds-hide");
-  //document.getElementById("genericline").classList.remove('slds-text-color_default');
-  //document.getElementById("genericline").classList.add('slds-text-color_inverse');
-  document.getElementById("genericline").classList.remove('non-sub-timeline');
+  document.getElementById("loremline").classList.remove('sub-timeline-active');
+  document.getElementById("basketline").classList.remove('sub-timeline-active');
   document.getElementById("genericline").classList.add('non-sub-timeline-active');
-  document.getElementById("loremline").style.backgroundColor = "rgb(216, 237, 255)";
-  document.getElementById("vgeneric").classList.add("slds-show");
-  document.getElementById("vgeneric").classList.remove("slds-hide");
-  document.getElementById("oppline").classList.add('opportunity-timeline');
   document.getElementById("oppline").classList.remove('opportunity-timeline-active');
 }
 
 const oppselect = () => {
-  document.getElementById("loremline").classList.remove('slds-text-color_inverse');
-  document.getElementById("loremline").classList.add('slds-text-color_default');
-  document.getElementById("loremline").style.backgroundColor = "rgb(216, 237, 255)";
-  document.getElementById("vlorem").classList.add("slds-show");
-  document.getElementById("vlorem").classList.remove("slds-hide");
-  document.getElementById("basketline").classList.add('slds-text-color_default');
-  document.getElementById("basketline").classList.remove('slds-text-color_inverse');
-  document.getElementById("basketline").style.backgroundColor = "rgb(216, 237, 255)";
-  document.getElementById("vbasket").classList.remove("slds-show");
-  document.getElementById("vbasket").classList.add("slds-hide");
-  document.getElementById("genericline").classList.add('slds-text-color_default');
-  document.getElementById("genericline").classList.remove('slds-text-color_inverse');
-  document.getElementById("genericline").classList.add('non-sub-timeline');
+  document.getElementById("loremline").classList.remove('sub-timeline-active');
+  document.getElementById("basketline").classList.remove('sub-timeline-active');
   document.getElementById("genericline").classList.remove('non-sub-timeline-active');
-  document.getElementById("vgeneric").classList.remove("slds-show");
-  document.getElementById("vgeneric").classList.add("slds-hide");
-  document.getElementById("oppline").classList.remove('opportunity-timeline');
   document.getElementById("oppline").classList.add('opportunity-timeline-active');
 }
 

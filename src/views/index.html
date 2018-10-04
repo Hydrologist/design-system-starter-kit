@@ -150,21 +150,21 @@
             <div class="slds-card__body" style="position:relative;">
               <!-- Visualize Products Timeline -- !VPT -->
               <div id="timeline" class="slds-grid slds-grid_vertical-align-start slds-grid_align-end slds-wrap slds-scrollable_y slds-m-top--large" style="height: 10rem; position: relative; z-index: 1;">
-                <div class="slds-col slds-m-bottom--small" style="width: 94%; position: sticky; top: 0; right: 1%">
-                  <div onclick="oppselect();" id="oppline" style="height: 1.5rem;" class="opportunity-timeline slds-m-horizontal--x-small slds-text-align--center slds-text-title_caps slds-grid slds-grid_align-spread">
-                    <div class="slds-col slds-text-color_default slds-text-title_caps slds-m-left--xx-small">
+                <div class="slds-col slds-m-bottom--large" style="width: 94%; position: sticky; top: 0; right: 1%">
+                  <div onclick="oppselect();" id="oppline" class="opportunity-timeline slds-m-horizontal--x-small slds-text-align--center slds-text-title_caps slds-grid slds-grid_align-spread">
+                    <div class="slds-col slds-text-title_caps slds-m-left--xx-small">
                       9/21/2018
                     </div>
-                    <div class="slds-col slds-text-color_default slds-text-title_caps">
+                    <div class="slds-col slds-text-title_caps">
                       Opportunity: Lipsum - Renewal - 2019
                     </div>
-                    <div class="slds-col slds-text-color_default slds-text-title_caps slds-m-right--xx-small">
+                    <div class="slds-col slds-text-title_caps slds-m-right--xx-small">
                       9/20/2019
                     </div>
                   </div>
                 </div>
                 <div class="slds-col slds-m-bottom--medium" style="width: 94%; position: relative; right: 1%">
-                  <div onclick="v1select();" id="loremline" style="padding: 0 3px 0 3px; box-shadow: 1px 2px 3px rgb(174, 174, 174); background-color: rgb(0, 112, 210); height: 1.5rem;" class="slds-text-color_inverse slds-text-title_caps slds-m-horizontal--x-small slds-text-align_center slds-grid slds-grid_align-spread">
+                  <div onclick="v1select();" id="loremline" class="sub-timeline sub-timeline-active slds-text-color_inverse slds-text-title_caps slds-m-horizontal--x-small slds-text-align_center slds-grid slds-grid_align-spread">
                     <div class="slds-col slds-m-left--xx-small slds-m-top--xx-small">
                       9/21/2018
                     </div>
@@ -177,7 +177,7 @@
                   </div>
                 </div>
                 <div class="slds-col slds-size_2-of-3 slds-m-bottom--medium"  style="width: 63%; position: relative; right: 1%">
-                  <div onclick="v2select();" id="basketline" style="box-shadow: 1px 2px 3px rgb(174, 174, 174); background-color: rgb(216, 237, 255); height: 1.5rem;" class="slds-text-color_default slds-text-title_caps slds-m-horizontal--x-small slds-text-align_center slds-grid slds-grid_align-spread">
+                  <div onclick="v2select();" id="basketline" class="sub-timeline slds-text-color_default slds-text-title_caps slds-m-horizontal--x-small slds-text-align_center slds-grid slds-grid_align-spread">
                     <div class="slds-col slds-m-left--xx-small slds-m-top--xx-small">
                       1/21/2018
                     </div>
@@ -292,7 +292,7 @@
                     </th>
                     <th class="slds-line-height_reset">
                       <div class="slds-text-title_caps" scope="col">
-                        <div class="slds-truncate slds-text-align_right" title="Term">Term</div>
+                        <div class="slds-truncate" title="Term">Term</div>
                       </div>
                     </th>
                   </thead>
@@ -1143,18 +1143,18 @@
             <div class="slds-card__body">
               <div class="slds-tabs_default">
                 <ul class="slds-tabs_default__nav" role="tablist">
-                  <li id="sh-tab" class="slds-tabs_default__item" title="Sales History" role="presentation">
-                    <a class="slds-tabs_default__link" href="javascript:shclick();" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-3" id="tab-default-3__item">Sales History</a>
+                  <li id="sh-tab" class="slds-tabs_default__item slds-is-active" title="Sales History" role="presentation">
+                    <a class="slds-tabs_default__link" href="javascript:shclick();" role="tab" tabindex="-1" aria-selected="true" aria-controls="tab-default-3" id="tab-default-3__item">Sales History</a>
                   </li>
                   <li id="pu-tab" class="slds-tabs_default__item" title="Product Upgrades" role="presentation">
                     <a class="slds-tabs_default__link" href="javascript:puclick();" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-2" id="tab-default-2__item">Product Upgrades</a>
                   </li>
-                  <li id="pt-tab" class="slds-tabs_default__item slds-is-active" title="Pricing Tables" role="presentation">
-                    <a class="slds-tabs_default__link" href="javascript:ptclick();" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-default-1" id="tab-default-1__item">Pricing Tables</a>
+                  <li id="pt-tab" class="slds-tabs_default__item" title="Pricing Tables" role="presentation">
+                    <a class="slds-tabs_default__link" href="javascript:ptclick();" role="tab" tabindex="0" aria-selected="false" aria-controls="tab-default-1" id="tab-default-1__item">Pricing Tables</a>
                   </li>
                 </ul>
                 <!-- Pricing Tables Content -- !PTC -->
-                <div id="tab-default-1" class="slds-tabs_default__content slds-show" role="tabpanel" aria-labelledby="tab-default-1__item">
+                <div id="tab-default-1" class="slds-tabs_default__content slds-hide" role="tabpanel" aria-labelledby="tab-default-1__item">
                   <div class="slds-grid slds-wrap slds-grid_align-spread">
                     <div class="slds-col slds-size_1-of-1 slds-border_bottom slds-p-bottom--small">
                       <div style="text-align: center;" class="slds-text-heading--large">
@@ -1334,7 +1334,7 @@
                     </div>
                   </div>
                 </div>
-                <div id="tab-default-3" class="slds-tabs_default__content slds-hide" role="tabpanel" aria-labelledby="tab-default-3__item">
+                <div id="tab-default-3" class="slds-tabs_default__content slds-show" role="tabpanel" aria-labelledby="tab-default-3__item">
                   <div class="slds-grid slds-wrap slds-grid_align-spread">
                     <div class="slds-col slds-size_1-of-1 slds-p-bottom--small">
                       <div style="text-align: center;" class="slds-text-heading--large">
