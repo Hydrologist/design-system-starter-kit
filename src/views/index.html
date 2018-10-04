@@ -118,7 +118,7 @@
       </ul>
     </article>
     <!-- Visualize Products Page -- !VPP -->
-    <article id="visualize-page" class="slds-show">
+    <article id="visualize-page" class="slds-hide">
       <div class="slds-grid slds-wrap">
         <div class="slds-col slds-size_1-of-1 slds-m-bottom--x-small">
           <article class="slds-card" style="position:relative; overflow: hidden;">
@@ -151,7 +151,7 @@
               <!-- Visualize Products Timeline -- !VPT -->
               <div id="timeline" class="slds-grid slds-grid_vertical-align-start slds-grid_align-end slds-wrap slds-scrollable_y slds-m-top--large" style="height: 10rem; position: relative; z-index: 1;">
                 <div class="slds-col slds-m-bottom--small" style="width: 94%; position: sticky; top: 0; right: 1%">
-                  <div id="oppline" style="height: 1.5rem;" class="opportunity-timeline slds-m-horizontal--x-small slds-text-align--center slds-text-title_caps slds-grid slds-grid_align-spread">
+                  <div onclick="oppselect();" id="oppline" style="height: 1.5rem;" class="opportunity-timeline slds-m-horizontal--x-small slds-text-align--center slds-text-title_caps slds-grid slds-grid_align-spread">
                     <div class="slds-col slds-text-color_default slds-text-title_caps slds-m-left--xx-small">
                       9/21/2018
                     </div>
@@ -164,7 +164,7 @@
                   </div>
                 </div>
                 <div class="slds-col slds-m-bottom--medium" style="width: 94%; position: relative; right: 1%">
-                  <div id="loremline" style="padding: 0 3px 0 3px; box-shadow: 1px 2px 3px rgb(174, 174, 174); background-color: rgb(0, 112, 210); height: 1.5rem;" class="slds-text-color_inverse slds-text-title_caps slds-m-horizontal--x-small slds-text-align_center slds-grid slds-grid_align-spread">
+                  <div onclick="v1select();" id="loremline" style="padding: 0 3px 0 3px; box-shadow: 1px 2px 3px rgb(174, 174, 174); background-color: rgb(0, 112, 210); height: 1.5rem;" class="slds-text-color_inverse slds-text-title_caps slds-m-horizontal--x-small slds-text-align_center slds-grid slds-grid_align-spread">
                     <div class="slds-col slds-m-left--xx-small slds-m-top--xx-small">
                       9/21/2018
                     </div>
@@ -176,8 +176,8 @@
                     </div>
                   </div>
                 </div>
-                <div class="slds-col slds-size_2-of-3 slds-m-bottom--medium" style="width: 63%; position: relative; right: 1%">
-                  <div id="basketline" style="box-shadow: 1px 2px 3px rgb(174, 174, 174); background-color: rgb(216, 237, 255); height: 1.5rem;" class="slds-text-color_default slds-text-title_caps slds-m-horizontal--x-small slds-text-align_center slds-grid slds-grid_align-spread">
+                <div class="slds-col slds-size_2-of-3 slds-m-bottom--medium"  style="width: 63%; position: relative; right: 1%">
+                  <div onclick="v2select();" id="basketline" style="box-shadow: 1px 2px 3px rgb(174, 174, 174); background-color: rgb(216, 237, 255); height: 1.5rem;" class="slds-text-color_default slds-text-title_caps slds-m-horizontal--x-small slds-text-align_center slds-grid slds-grid_align-spread">
                     <div class="slds-col slds-m-left--xx-small slds-m-top--xx-small">
                       1/21/2018
                     </div>
@@ -191,7 +191,7 @@
                 </div>
                 <div class="slds-col slds-size_1-of-1" style="position:relative; left: 5%">
                   <div style="height: 1.5rem;" class="slds-text-color_default slds-text-title_caps slds-p-top--xx-small slds-p-left--xx-small slds-m-horizontal--x-small slds-text-align_start">
-                    <div id="genericline" class="non-sub-timeline">
+                    <div onclick="v3select();" id="genericline" class="non-sub-timeline">
                       Perfectly Generic Object | Qty: 2 | $400.00
                     </div>
                   </div>
@@ -201,7 +201,7 @@
           </article>
         </div>
         <!-- Visualize Products Products -- !VPP -->
-        <div class="slds-col slds-size_2-of-3 slds-p-right--xx-small">
+        <div class="slds-col slds-size_1-of-1 slds-p-right--xx-small">
           <article class="slds-card slds-m-bottom--small" style="position:relative; overflow: hidden;">
             <div class="slds-grid slds-wrap slds-grid_align-spread">
               <div class="slds-col slds-size_1-of-1 slds-scrollable_x">
@@ -225,7 +225,7 @@
                     </th>
                     <th class="slds-line-height_reset">
                       <div class="slds-text-title_caps" scope="col">
-                        <div class="slds-truncate slds-text-align_right" title="Term">Term</div>
+                        <div class="slds-truncate" title="Term">Term</div>
                       </div>
                     </th>
                   </thead>
@@ -261,7 +261,13 @@
                         <span>[<a href="javascript:void(0);">9/20/2019</a>]</span>
                       </td>
                       <td data-label="Term">
-                        <div class="slds-truncate slds-text-align_right" title="12">12</div>
+                        <span class="slds-form-element">
+                          <label class="slds-form-element__label" for="viz-term-input-1"></label>
+                          <span class="slds-form-element__control">
+                            <input id="viz-term-input-1" class="slds-input" value="" type="number" style="width: 9rem;"/>
+                          </span>
+                        </span>
+                        <span>[<a href="javascript:void(0);">12</a>]</span>
                       </td>
                     </tr>
                   </tbody>
@@ -322,7 +328,13 @@
                         <span>[<a href="javascript:void(0);">9/20/2019</a>]</span>
                       </td>
                       <td data-label="Term">
-                        <div class="slds-truncate slds-text-align_right" title="12">12</div>
+                        <span class="slds-form-element">
+                          <label class="slds-form-element__label" for="viz-term-input-2"></label>
+                          <span class="slds-form-element__control">
+                            <input id="viz-term-input-2" class="slds-input" value="" type="number" style="width: 9rem;"/>
+                          </span>
+                        </span>
+                        <span>[<a href="javascript:void(0);">12</a>]</span>
                       </td>
                     </tr>
                     <tr class="slds-hint-parent">
@@ -356,7 +368,13 @@
                         <span>[<a href="javascript:void(0);">9/20/2019</a>]</span>
                       </td>
                       <td data-label="Term">
-                        <div class="slds-truncate slds-text-align_right" title="8">8</div>
+                        <span class="slds-form-element">
+                          <label class="slds-form-element__label" for="viz-term-input-3"></label>
+                          <span class="slds-form-element__control">
+                            <input id="viz-term-input-3" class="slds-input" value="" type="number" style="width: 9rem;"/>
+                          </span>
+                        </span>
+                        <span>[<a href="javascript:void(0);">8</a>]</span>
                       </td>
                     </tr>
                     <tr class="slds-hint-parent" style="height: 2.5rem;">
@@ -372,7 +390,13 @@
                         <div class="slds-truncate" title="Perfectly Generic Object">Perfectly Generic Object</div>
                       </th>
                       <td data-label="Start Date">
-                        <div class="slds-truncate" title=""></div>
+                        <span class="slds-form-element">
+                          <label class="slds-form-element__label" for="viz-date-input-7"></label>
+                          <span class="slds-form-element__control">
+                            <input id="viz-date-input-7" class="slds-input" value="" type="date" style="width: 9rem;"/>
+                          </span>
+                        </span>
+                        <span>[<a href="javascript:void(0);">9/21/2018</a>]</span>
                       </td>
                       <td data-label="End Date" scope="row">
                         <div class="slds-truncate" title=""></div>
@@ -383,500 +407,6 @@
                     </tr>
                   </tbody>
                 </table>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="slds-col slds-size_1-of-3 slds-p-left--xx-small" style="height:400px;">
-          <article class="slds-card slds-m-bottom--small" style="position:relative; overflow: hidden; height: 400px;">
-            <div class="slds-card__body slds-card__body_inner">
-              <!-- Lorem Ipsum Product Detail -- !LIPD -->
-              <div id="vlorem" class="slds-grid slds-wrap slds-grid_align-spread slds-show">
-                <div class="slds-col slds-size_1-of-1 slds-m-bottom--medium">
-                  <div class="slds-m-top--small slds-text-heading--large" style="text-align: center;">
-                    Lorem Ipsum
-                  </div>
-                </div>
-                <div class="slds-col slds-size_1-of-1 slds-grid">
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Opportunity
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          <a href="javascript:void();">Lipsum - Renewal - 2019</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Quantity
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          2
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="slds-col slds-size_1-of-1 slds-grid">
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Product
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          <a href="javascript:void();">Lorem Ipsum</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Term (Months)
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          12
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="slds-col slds-size_1-of-1 slds-grid">
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        List Price
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $600.00<span class="slds-text-body_small slds-text-color_weak"> / year</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Unit Price
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $500.00<span class="slds-text-body_small slds-text-color_weak"> / year</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="slds-col slds-size_1-of-1 slds-grid">
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Sales Price
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $6000.00<span class="slds-text-body_small slds-text-color_weak"> / year</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Total Price
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $16200.00<span class="slds-text-body_small slds-text-color_weak"> / year</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="slds-col slds-size_1-of-1 slds-grid">
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Contract Effective Date
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          9/21/2018
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Tax Amount
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $0.00
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="slds-col slds-size_1-of-1 slds-grid">
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Contract End Date
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          9/20/2019
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Commission
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $1620.00
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Underwater Basket Weaving Class Product Detail -- !UBWCPD -->
-              <div id="vbasket" class="slds-grid slds-wrap slds-grid_align-spread slds-hide">
-                <div class="slds-col slds-size_1-of-1 slds-m-bottom--medium">
-                  <div class="slds-m-top--small slds-text-heading--large" style="text-align: center;">
-                    Underwater Basket Weaving Class
-                  </div>
-                </div>
-                <div class="slds-col slds-size_1-of-1 slds-grid">
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Opportunity
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          <a href="javascript:void();">Lipsum - Renewal - 2019</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Quantity
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          1
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="slds-col slds-size_1-of-1 slds-grid">
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Product
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          <a href="javascript:void();">Underwater Basket Weaving Class</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Term (Months)
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          8
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="slds-col slds-size_1-of-1 slds-grid">
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        List Price
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $200.00<span class="slds-text-body_small slds-text-color_weak"> / year</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Unit Price
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $100.00<span class="slds-text-body_small slds-text-color_weak"> / year</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="slds-col slds-size_1-of-1 slds-grid">
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Sales Price
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $1200.00<span class="slds-text-body_small slds-text-color_weak"> / year</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Total Price
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $1200.00<span class="slds-text-body_small slds-text-color_weak"> / year</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="slds-col slds-size_1-of-1 slds-grid">
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Contract Effective Date
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          1/21/2019
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Tax Amount
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $0.00
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="slds-col slds-size_1-of-1 slds-grid">
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Contract End Date
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          9/20/2019
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Commission
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $120.00
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div id="vgeneric" class="slds-grid slds-wrap slds-grid_align-spread slds-hide">
-                <div class="slds-col slds-size_1-of-1 slds-m-bottom--medium">
-                  <div class="slds-m-top--small slds-text-heading--large" style="text-align: center;">
-                    Perfectly Generic Object
-                  </div>
-                </div>
-                <div class="slds-col slds-size_1-of-1 slds-grid">
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Opportunity
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          <a href="javascript:void();">Lipsum - Renewal - 2019</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Quantity
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          1
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="slds-col slds-size_1-of-1 slds-grid">
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Product
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          <a href="javascript:void();">Perfectly Generic Object</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Term (Months)
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="slds-col slds-size_1-of-1 slds-grid">
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        List Price
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $200.00
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Unit Price
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $200.00
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="slds-col slds-size_1-of-1 slds-grid">
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Sales Price
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $200.00
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Total Price
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $200.00
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="slds-col slds-size_1-of-1 slds-grid">
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Contract Effective Date
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Tax Amount
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $0.00
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="slds-col slds-size_1-of-1 slds-grid">
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Contract End Date
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Commission
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $20.00
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </article>
@@ -1221,7 +751,7 @@
                           <span style="text-align: right;" class="slds-truncate" title="$200.00">$200.00</span>
                         </span>
                       </td>
-                      <td role="gridcell">
+                      <td class="edit-cell" role="gridcell">
                         <span class="slds-grid slds-grid_align-end">
                           <span style="text-align: right;" class="slds-truncate" title="$200.00">$200.00</span>
                           <button class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_xx-small" tabindex="-1" title="Edit Unit Price">
@@ -1254,7 +784,7 @@
                           <span style="text-align: right;" class="slds-truncate" title="$200.00">$200.00</span>
                         </span>
                       </td>
-                      <td role="gridcell">
+                      <td class="edit-cell" role="gridcell">
                         <span class="slds-grid slds-grid_align-end">
                           <span style="text-align: right;" class="slds-truncate" title="2">2</span>
                           <button class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_xx-small" tabindex="-1" title="Edit Quantity">
@@ -1276,7 +806,7 @@
                           <span style="text-align: right;" class="slds-truncate" title="$400.00">$400.00</span>
                         </span>
                       </td>
-                      <td role="gridcell">
+                      <td class="edit-cell" role="gridcell">
                         <span class="slds-grid slds-grid_align-spread">
                           <span style="text-align: right;" class="slds-truncate" title=""></span>
                           <button class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_xx-small" tabindex="-1" title="Edit Discount">
@@ -1601,7 +1131,7 @@
                 </div>
                 <div class="slds-col slds-size_1-of-1 slds-text-align--center">
                   <button class="slds-button slds-button_brand">Save</button>
-                  <button class="slds-button slds-button_neutral">Cancel</button>
+                  <button class="slds-button slds-button_neutral" onclick="loremselect();">Cancel</button>
                 </div>
               </div>
             </div>
@@ -1613,14 +1143,14 @@
             <div class="slds-card__body">
               <div class="slds-tabs_default">
                 <ul class="slds-tabs_default__nav" role="tablist">
-                  <li id="pt-tab" class="slds-tabs_default__item slds-is-active" title="Pricing Tables" role="presentation">
-                    <a class="slds-tabs_default__link" href="javascript:ptclick();" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-default-1" id="tab-default-1__item">Pricing Tables</a>
+                  <li id="sh-tab" class="slds-tabs_default__item" title="Sales History" role="presentation">
+                    <a class="slds-tabs_default__link" href="javascript:shclick();" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-3" id="tab-default-3__item">Sales History</a>
                   </li>
                   <li id="pu-tab" class="slds-tabs_default__item" title="Product Upgrades" role="presentation">
                     <a class="slds-tabs_default__link" href="javascript:puclick();" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-2" id="tab-default-2__item">Product Upgrades</a>
                   </li>
-                  <li id="sh-tab" class="slds-tabs_default__item" title="Sales History" role="presentation">
-                    <a class="slds-tabs_default__link" href="javascript:shclick();" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-3" id="tab-default-3__item">Sales History</a>
+                  <li id="pt-tab" class="slds-tabs_default__item slds-is-active" title="Pricing Tables" role="presentation">
+                    <a class="slds-tabs_default__link" href="javascript:ptclick();" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-default-1" id="tab-default-1__item">Pricing Tables</a>
                   </li>
                 </ul>
                 <!-- Pricing Tables Content -- !PTC -->
@@ -1846,7 +1376,7 @@
                           </th>
                           <th class="slds-line-height_reset">
                             <div class="slds-text-title_caps" scope="col">
-                              <div class="slds-truncate slds-text-align_right" title="Discount">Discount</div>
+                              <div class="slds-truncate slds-text-align_right" title="Discount">DISC</div>
                             </div>
                           </th>
                           <th class="slds-line-height_reset">

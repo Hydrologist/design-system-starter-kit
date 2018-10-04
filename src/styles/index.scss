@@ -49,7 +49,12 @@ $static-font-path: '/assets/fonts/webfonts';
 }
 
 .opportunity-timeline-active {
-  border: 3px solid rgb(21, 137, 238); 
+  border-left: 3px solid rgb(21, 137, 238);
+  border-right: 3px solid rgb(21, 137, 238);
+  border-top: 3px solid rgb(21, 137, 238);
+  border-bottom: 3px solid black; 
+  background-color: rgb(21, 137, 238);
+  color: white;
 }
 
 .non-sub-timeline:before {
@@ -88,6 +93,7 @@ $static-font-path: '/assets/fonts/webfonts';
 }
 
 .recommended-button {
+  background-color: white;
   border-radius: .5rem; 
   border: 1px solid rgb(4, 132, 75);
   color: rgb(2, 126, 70);
@@ -108,16 +114,17 @@ $static-font-path: '/assets/fonts/webfonts';
 }
 
 .downgrade-button {
+  background-color: white;
   border-radius: .5rem; 
-  border: 1px solid rgb(194, 57, 52);
-  color: rgb(194, 57, 52);
+  border: 1px solid rgb(255, 154, 60);
+  color: rgb(255, 154, 60);
 }
 
 .downgrade-button:hover {
-  background-color: rgb(194, 57, 52);
+  background-color: rgb(255, 154, 60);
   color: white;
 }
 
 .blocked-downgrade {
-  color: rgb(194, 57, 52);
+  color: rgb(255, 154, 60);
 }
