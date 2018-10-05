@@ -130,6 +130,7 @@ const loremselect = () => {
   document.getElementById("upgrade-preview").classList.add('slds-hide');
   document.getElementById("upgrade-preview").classList.remove('slds-show');
   document.getElementById("recupgrade").classList.remove('recommended-button-active');
+  document.getElementById("edit-hider").classList.remove('edit-hide');
 }
 
 const genericselect = () => {
@@ -150,6 +151,7 @@ const upgradeselect = () => {
   document.getElementById("upgrade-preview").classList.remove('slds-hide');
   document.getElementById("upgrade-preview").classList.add('slds-show');
   document.getElementById("recupgrade").classList.add('recommended-button-active');
+  document.getElementById("edit-hider").classList.add('edit-hide');
 }
 
 const manageclick = () => {
@@ -207,6 +209,7 @@ const oppselect = () => {
 }
 
 const editunhide = () => {
-  document.getElementById("edit-hider").classList.remove('edit-hide');
   document.getElementById("edit-table").classList.add('slds-hide');
+  document.getElementById("left-panel").classList.remove('slds-hide');
+  document.getElementById("right-panel").classList.remove('slds-hide');
 }
