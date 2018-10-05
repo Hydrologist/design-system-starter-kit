@@ -419,8 +419,25 @@
       <div class="slds-grid slds-wrap">
         <div class="slds-col slds-size_1-of-1 slds-m-bottom--x-small">
           <article id="edit-table" class="slds-card edit-card">
+            <div class="slds-card__header slds-grid">
+              <div class="slds-media__figure">
+                <span class="slds-icon_container slds-icon-standard-record-create" title="record_create">
+                  <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                    <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#record_create"></use>
+                  </svg>
+                  <span class="slds-assistive-text">product</span>
+                </span>
+              </div>
+              <div class="slds-media__body">
+                <h2 class="slds-card__header-title">
+                  <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="Edit New Products">
+                    <span>Edit New Products</span>
+                  </a>
+                </h2>
+                Edit the details for your Opportunity Products. If a value is displayed in a link next to an input, you can leave the input blank to use the value from the link.
+              </div>
+            </div>
             <div class="slds-card__body">
-              <div class="slds-text-heading--medium slds-m-bottom--xx-small slds-text-align--center">Edit New Products</div>
               <!-- Edit Products Table -- !EPT -->
               <table class="slds-table slds-table_cell-buffer slds-table_bordered">
                 <thead>
@@ -504,7 +521,9 @@
                 </tbody>
               </table>
               <div class="slds-text-align--center slds-m-top--x-small">
-                <button class="slds-button slds-button_brand">Save</button>
+                <button class="slds-button slds-button_brand">Add & Return to Opportunity</button>
+                <button class="slds-button slds-button_brand" onclick="editunhide();">Quick Save</button>
+                <button class="slds-button slds-button_neutral">Select More</button>
                 <button class="slds-button slds-button_neutral" onclick="editunhide();">Cancel</button>
               </div>
             </div>
@@ -513,6 +532,23 @@
         <!-- Opportunity Product List -->
         <div class="slds-col slds-size_1-of-1 slds-m-bottom--x-small">
           <article class="slds-card">
+            <div class="slds-card__header slds-grid">
+              <div class="slds-media__figure">
+                <span class="slds-icon_container slds-icon-standard-product" title="product">
+                  <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                    <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#product"></use>
+                  </svg>
+                  <span class="slds-assistive-text">product</span>
+                </span>
+              </div>
+              <div class="slds-media__body">
+                <h2 class="slds-card__header-title">
+                  <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="Current Products">
+                    <span>Current Products</span>
+                  </a>
+                </h2>
+              </div>
+            </div>
             <div class="slds-card__body">
               <div class="slds-table_edit_container slds-is-relative">
                 <table aria-multiselectable="true" class="slds-truncate slds-table no-cell-focus slds-table_bordered slds-table_edit slds-table_fixed-layout slds-table_resizable-cols" role="grid">
