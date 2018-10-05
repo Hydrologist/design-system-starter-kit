@@ -206,3 +206,7 @@ const oppselect = () => {
   document.getElementById("oppline").classList.add('opportunity-timeline-active');
 }
 
+const editunhide = () => {
+  document.getElementById("edit-hider").classList.remove('edit-hide');
+  document.getElementById("edit-table").classList.add('slds-hide');
+}

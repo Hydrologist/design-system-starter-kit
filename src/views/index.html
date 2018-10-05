@@ -13,6 +13,7 @@
   <script src="../scripts/app.js"></script>
 </head>
 <body>
+  <div id="edit-hider" class="edit-hide"></div>
   <div class="slds-p-top--medium slds-container--center slds-container--x-large">
     <div class="slds-m-bottom--medium slds-page-header slds-page-header_record-home">
       <div class="slds-page-header__row">
@@ -417,8 +418,10 @@
     <article id="manage-page" class="slds-m-bottom--medium slds-show">
       <div class="slds-grid slds-wrap">
         <div class="slds-col slds-size_1-of-1 slds-m-bottom--x-small">
-          <article class="slds-card">
+          <article id="edit-table" class="slds-card edit-card">
             <div class="slds-card__body">
+              <div class="slds-text-heading--medium slds-m-bottom--xx-small slds-text-align--center">Edit New Products</div>
+              <!-- Edit Products Table -- !EPT -->
               <table class="slds-table slds-table_cell-buffer slds-table_bordered">
                 <thead>
                   <tr class="slds-line-height_reset">
@@ -434,10 +437,10 @@
                     <th class="slds-text-title_caps" scope="col">
                       <div class="slds-truncate" title="Term">Term</div>
                     </th>
-                    <th class="slds-text-title_caps" scope="col" style="width: 4rem;">
+                    <th class="slds-text-title_caps" scope="col">
                       <div class="slds-truncate" title="Quantity">qty</div>
                     </th>
-                    <th class="slds-text-title_caps" scope="col" style="width: 5rem;">
+                    <th class="slds-text-title_caps" scope="col">
                       <div class="slds-truncate" title="Discount">Discount</div>
                     </th>
                     <th class="slds-text-title_caps" scope="col">
@@ -452,30 +455,33 @@
                     </td>
                     <td data-label="Unit Price">
                       <span class="slds-form-element">
-                        <span class="slds-form-element__control">
-                          <input id="edit-price-input-1" class="slds-input edit-input" value="" type="number" />
+                        <span class="slds-form-element__control" w>
+                          <input style="width: 7rem;" id="edit-price-input-1" class="slds-input edit-input" value="" type="number" />
                         </span>
                       </span>
                       <span class="slds-text-body_small slds-text-color_weak"> / month</span>
+                      <span>[<a href="javascript:void(0);">$600.00</a>]</span>
                     </td>
                     <td>
                       <span class="slds-form-element">
                         <span class="slds-form-element__control">
-                          <input id="edit-date-input-1" class="slds-input edit-input" value="" type="date" />
+                          <input style="width:10rem;" id="edit-date-input-1" class="slds-input edit-input" value="" type="date" />
                         </span>
                       </span>
+                      <span>[<a href="javascript:void(0);">9/21/2018</a>]</span>
                     </td>
                     <td>
                       <span class="slds-form-element">
                         <span class="slds-form-element__control">
-                          <input id="edit-term-input-1" class="slds-input edit-input" value="" type="number" />
+                          <input style="width: 6rem;" id="edit-term-input-1" class="slds-input edit-input" value="" type="number" />
                         </span>
                       </span>
+                      <span>[<a href="javascript:void(0);">12</a>]</span>
                     </td>
                     <td>
                       <span class="slds-form-element">
                         <span class="slds-form-element__control">
-                          <input id="edit-qty-input-1" class="slds-input edit-input" value="" type="number" />
+                          <input style="width: 6rem;" id="edit-qty-input-1" class="slds-input edit-input" value="" type="number" />
                         </span>
                       </span>
                     </td>
@@ -490,13 +496,17 @@
                     <td>
                       <span class="slds-form-element">
                         <span class="slds-form-element__control">
-                          <input id="edit-desc-input-1" class="slds-input edit-input" value="" type="text" />
+                          <input style="width: 10rem;" id="edit-desc-input-1" class="slds-input edit-input" value="" type="text" />
                         </span>
                       </span>
                     </td>
                   </tr>
                 </tbody>
               </table>
+              <div class="slds-text-align--center slds-m-top--x-small">
+                <button class="slds-button slds-button_brand">Save</button>
+                <button class="slds-button slds-button_neutral" onclick="editunhide();">Cancel</button>
+              </div>
             </div>
           </article>
         </div>

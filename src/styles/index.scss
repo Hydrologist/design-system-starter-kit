@@ -136,3 +136,17 @@ $static-font-path: '/assets/fonts/webfonts';
 .blocked-downgrade {
   color: rgb(255, 154, 60);
 }
+
+.edit-card {
+  z-index: 3;
+}
+
+.edit-hide {
+  position: absolute;
+  top:0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, .3);
+  z-index: 3;
+}
