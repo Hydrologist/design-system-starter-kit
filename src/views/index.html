@@ -40,41 +40,9 @@
         <div class="slds-page-header__col-actions">
           <div class="slds-page-header__controls">
             <div class="slds-page-header__control">
-              <button class="slds-button slds-button_neutral slds-button_stateful slds-not-selected" aria-live="assertive">
-                <span class="slds-text-not-selected">
-                  <svg class="slds-button__icon slds-button__icon_small slds-button__icon_left" aria-hidden="true">
-                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add" xmlns:xlink="http://www.w3.org/1999/xlink" />
-                  </svg>Follow</span>
-                <span class="slds-text-selected">
-                  <svg class="slds-button__icon slds-button__icon_small slds-button__icon_left" aria-hidden="true">
-                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#check" xmlns:xlink="http://www.w3.org/1999/xlink" />
-                  </svg>Following</span>
-                <span class="slds-text-selected-focus">
-                  <svg class="slds-button__icon slds-button__icon_small slds-button__icon_left" aria-hidden="true">
-                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close" xmlns:xlink="http://www.w3.org/1999/xlink" />
-                  </svg>Unfollow</span>
-              </button>
-            </div>
-            <div class="slds-page-header__control">
               <ul class="slds-button-group-list">
                 <li>
-                  <button class="slds-button slds-button_neutral">Edit</button>
-                </li>
-                <li>
-                  <button class="slds-button slds-button_neutral">Delete</button>
-                </li>
-                <li>
-                  <button class="slds-button slds-button_neutral">Clone</button>
-                </li>
-                <li>
-                  <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
-                    <button class="slds-button slds-button_icon slds-button_icon-border-filled" aria-haspopup="true" title="More Actions">
-                      <svg class="slds-button__icon" aria-hidden="true">
-                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down" xmlns:xlink="http://www.w3.org/1999/xlink" />
-                      </svg>
-                      <span class="slds-assistive-text">More Actions</span>
-                    </button>
-                  </div>
+                  <button class="slds-button slds-button_neutral">Back to Opportunity</button>
                 </li>
               </ul>
             </div>
@@ -114,12 +82,6 @@
         </li>
         <li class="slds-button-group-item">
           <button id="visualize-button" onclick="visualizeclick();" class="slds-button slds-button_neutral">Visualize Products</button>
-        </li>
-        <li class="slds-button-group-item">
-          <button class="slds-button slds-button_brand" onclick="opentray();">Open</button>
-        </li>
-        <li class="slds-button-group-item">
-          <button class="slds-button slds-button_brand" onclick="closetray();">Close</button>
         </li>
       </ul>
     </article>
@@ -648,6 +610,7 @@
                 <table id="editable-table" class="slds-table slds-table_cell-buffer slds-table_bordered slds-hide">
                   <thead>
                     <tr class="slds-line-height_reset">
+                      <th scope="col" style="width: 3.5rem;"></th>
                       <th class="slds-text-title_caps" scope="col">
                         <div class="slds-truncate" title="Name">Name</div>
                       </th>
@@ -670,22 +633,54 @@
                   </thead>
                   <tbody>
                     <tr class="slds-hint-parent">
+                      <td>
+                        <button id="expand-button" onclick="opentray();" class="slds-button slds-button_icon slds-button_icon-border" title="Expand">
+                          <svg class="slds-button__icon" aria-hidden="true">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+                          </svg>
+                          <span class="slds-assistive-text">Expand</span>
+                        </button>
+                        <button id="close-button" onclick="closetray();" class="slds-button slds-button_icon slds-button_icon-border slds-is-selected slds-hide" title="Hide">
+                          <svg class="slds-button__icon" aria-hidden="true">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                          </svg>
+                          <span class="slds-assistive-text">Hide</span>
+                        </button>
+                      </td>
                       <td data-label="Name">
-                        <div class="slds-truncate" title="Lorem Ipsum">Lorem Ipsum</div>
+                        <div class="slds-truncate" title="Lorem Ipsum">
+                          <span>Lorem Ipsum</span>
+                          <span>
+                            <button id="upgrade-button" onclick="puclick(); opentray();" class="slds-button slds-button_icon" title="Upgrades">
+                              <svg class="slds-button__icon slds-icon-text-success" aria-hidden="true">
+                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#level_up"></use>
+                              </svg>
+                              <span class="slds-assistive-text">Upgrades</span>
+                            </button>
+                          </span>
+                        </div>
                       </td>
                       <td data-label="Unit Price">
                         <span class="slds-form-element">
                           <span class="slds-form-element__control">
-                            <input style="width: 7rem;" id="edit-price-input-1" class="slds-input edit-input" value="" type="number" />
+                            <input style="width: 7rem;" id="edit-price-input-2" class="slds-input edit-input" value="500.00" type="number" />
                           </span>
                         </span>
                         <span class="slds-text-body_small slds-text-color_weak"> /month</span>
-                        <span>[<a href="javascript:void(0);">$600.00</a>]</span>
+                        <span>[<a href="javascript:void(0);">$500.00</a>]</span>
+                        <span>
+                          <button id="pt-button" onclick="ptclick(); opentray();" class="slds-button slds-button_icon" title="Pricing Tables">
+                            <svg class="slds-button__icon" aria-hidden="true">
+                              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#table"></use>
+                            </svg>
+                            <span class="slds-assistive-text">Pricing Tables</span>
+                          </button>
+                        </span>
                       </td>
                       <td>
                         <span class="slds-form-element">
                           <span class="slds-form-element__control">
-                            <input style="width: 6rem;" id="edit-term-input-1" class="slds-input edit-input" value="" type="number" />
+                            <input style="width: 6rem;" id="edit-term-input-2" class="slds-input edit-input" value="12" type="number" />
                           </span>
                         </span>
                         <span>[<a href="javascript:void(0);">12</a>]</span>
@@ -693,17 +688,25 @@
                       <td>
                         <span class="slds-form-element">
                           <span class="slds-form-element__control">
-                            <input style="width: 6rem;" id="edit-qty-input-1" class="slds-input edit-input" value="" type="number" />
+                            <input style="width: 6rem;" id="edit-qty-input-2" class="slds-input edit-input" value="3" type="number" />
                           </span>
                         </span>
                       </td>
                       <td>
                         <span class="slds-form-element">
                           <span class="slds-form-element__control">
-                            <input id="edit-discount-input-1" class="slds-input edit-input" value="" type="number" />
+                            <input id="edit-discount-input-2" class="slds-input edit-input" value="5" type="number" />
                           </span>
                         </span>
                         <span class="slds-text-body_small slds-text-color_weak">%</span>
+                        <span>
+                          <button id="discount-button" onclick="applydiscount();" class="slds-button slds-button_icon" title="Discount Guidance">
+                            <svg class="slds-button__icon slds-icon-text-success" aria-hidden="true">
+                              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#light_bulb"></use>
+                            </svg>
+                            <span class="slds-assistive-text">Discount Guidance</span>
+                          </button>
+                        </span>
                       </td>
                       <td class="slds-text-align--right">
                         $16200.00<span class="slds-text-body_small slds-text-color_weak"> /month</span>
@@ -725,11 +728,11 @@
                                 <div class="slds-col slds-size_1-of-2">
                                   <div class="slds-m-bottom--small">
                                     <span class="slds-form-element__label">
-                                      Adjusted Base Price
+                                      Base Price
                                     </span>
                                     <div class="slds-form-element__control">
                                       <div class="slds-form-element__static">
-                                        $500.00<span class="slds-text-body_small slds-text-color_weak"> / year</span>
+                                        $600.00<span class="slds-text-body_small slds-text-color_weak"> / year</span>
                                       </div>
                                     </div>
                                   </div>
@@ -918,11 +921,11 @@
                                 <div class="slds-col slds-size_1-of-2">
                                   <div class="slds-m-bottom--small">
                                     <span class="slds-form-element__label">
-                                      Current Adjusted Base Price
+                                      Current Base Price
                                     </span>
                                     <div class="slds-form-element__control">
                                       <div class="slds-form-element__static">
-                                        $500.00<span class="slds-text-body_small slds-text-color_weak"> / month</span>
+                                        $600.00<span class="slds-text-body_small slds-text-color_weak"> / month</span>
                                       </div>
                                     </div>
                                   </div>
@@ -930,11 +933,11 @@
                                 <div class="slds-col slds-size_1-of-2">
                                   <div class="slds-m-bottom--small">
                                     <span class="slds-form-element__label">
-                                      New Adjusted Base Price
+                                      New Base Price
                                     </span>
                                     <div class="slds-form-element__control">
                                       <div class="slds-form-element__static">
-                                        $1500.00<span class="slds-text-body_small slds-text-color_weak"> / month</span>
+                                        $2000.00<span class="slds-text-body_small slds-text-color_weak"> / month</span>
                                       </div>
                                     </div>
                                   </div>
@@ -944,11 +947,11 @@
                                 <div class="slds-col slds-size_1-of-2">
                                   <div class="slds-m-bottom--small">
                                     <span class="slds-form-element__label">
-                                      Current Subtotal
+                                      Current Unit Price
                                     </span>
                                     <div class="slds-form-element__control">
                                       <div class="slds-form-element__static">
-                                        $18000.00<span class="slds-text-body_small slds-text-color_weak"> / year</span>
+                                        $500.00<span class="slds-text-body_small slds-text-color_weak"> / year</span>
                                       </div>
                                     </div>
                                   </div>
@@ -956,11 +959,11 @@
                                 <div class="slds-col slds-size_1-of-2">
                                   <div class="slds-m-bottom--small">
                                     <span class="slds-form-element__label">
-                                      New Subtotal
+                                      New Unit Price
                                     </span>
                                     <div class="slds-form-element__control">
                                       <div class="slds-form-element__static">
-                                        $180000.00<span class="slds-text-body_small slds-text-color_weak"> / year</span>
+                                        $1500.00<span class="slds-text-body_small slds-text-color_weak"> / year</span>
                                       </div>
                                     </div>
                                   </div>
@@ -1259,7 +1262,6 @@
                                           </td>
                                           <td data-label="Sales Price">
                                             <div class="slds-truncate slds-text-align_right" title="$7200.00/year">$7200.00<span class="slds-text-body_small slds-text-color_weak"> / year</span></div>
-                                            
                                           </td>
                                           <th data-label="Quantity" scope="row">
                                             <div class="slds-truncate slds-text-align_right" title="1">1</div>
@@ -1308,13 +1310,21 @@
                       </td>
                     </tr>
                     <tr class="slds-hint-parent">
+                      <td>
+                        <button class="slds-button slds-button_icon slds-button_icon-border" title="Expand">
+                          <svg class="slds-button__icon" aria-hidden="true">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+                          </svg>
+                          <span class="slds-assistive-text">Expand</span>
+                        </button>
+                      </td>
                       <td data-label="Name">
                         <div class="slds-truncate" title="Lorem Ipsum">Perfectly Generic Object</div>
                       </td>
                       <td data-label="Unit Price">
                         <span class="slds-form-element">
                           <span class="slds-form-element__control">
-                            <input style="width: 7rem;" id="edit-price-input-2" class="slds-input edit-input" value="" type="number" />
+                            <input style="width: 7rem;" id="edit-price-input-3" class="slds-input edit-input" value="" type="number" />
                           </span>
                         </span>
                         <span>[<a href="javascript:void(0);">$200.00</a>]</span>
@@ -1323,14 +1333,14 @@
                       <td>
                         <span class="slds-form-element">
                           <span class="slds-form-element__control">
-                            <input style="width: 6rem;" id="edit-qty-input-2" class="slds-input edit-input" value="" type="number" />
+                            <input style="width: 6rem;" id="edit-qty-input-3" class="slds-input edit-input" value="" type="number" />
                           </span>
                         </span>
                       </td>
                       <td>
                         <span class="slds-form-element">
                           <span class="slds-form-element__control">
-                            <input id="edit-discount-input-2" class="slds-input edit-input" value="" type="number" />
+                            <input id="edit-discount-input-3" class="slds-input edit-input" value="" type="number" />
                           </span>
                         </span>
                         <span class="slds-text-body_small slds-text-color_weak">%</span>
@@ -1341,6 +1351,16 @@
                     </tr>
                   </tbody>
                 </table>
+                <div id="manage-footer" class="current-buttons slds-text-align--center slds-p-vertical--x-small slds-hide">
+                  <ul class="slds-button-group-row">
+                    <li class="slds-button-group-item">
+                      <button id="select-button" class="slds-button slds-button_brand">Save</button>
+                    </li>
+                    <li class="slds-button-group-item">
+                      <button id="manage-button" class="slds-button slds-button_neutral">Cancel</button>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </article>

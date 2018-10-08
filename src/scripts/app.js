@@ -209,11 +209,18 @@ const oppselect = () => {
 }
 
 const editunhide = () => {
-  document.getElementById("edit-table").classList.add('slds-hide');
-  document.getElementById("readonly-table").classList.add('slds-hide');
-  document.getElementById("editable-table").classList.remove('slds-hide');
-  document.getElementById("left-panel").classList.remove('slds-hide');
-  document.getElementById("right-panel").classList.remove('slds-hide');
+  hide('edit-table');
+  hide("readonly-table");
+  unhide("editable-table");
+  unhide("manage-footer");
+}
+
+function hide(element) {
+  document.getElementById(element).classList.add('slds-hide');
+}
+
+function unhide(element) {
+  document.getElementById(element).classList.remove('slds-hide');
 }
 
 function sleep(ms) {
@@ -222,13 +229,21 @@ function sleep(ms) {
 }
 
 async function opentray() {
+  hide('expand-button');
+  unhide('close-button');
   document.getElementById("tray").classList.add('tray-show');
   await sleep(100);
   document.getElementById("tray-content").classList.add('tray-content-show');
 }
 
 async function closetray() {
+  unhide('expand-button');
+  hide('close-button');
   document.getElementById("tray-content").classList.remove('tray-content-show');
   await sleep(300);
   document.getElementById("tray").classList.remove('tray-show');
+}
+
+const applydiscount = () => {
+  document.getElementById("edit-discount-input-2").setAttribute('value', 10);
 }

@@ -176,3 +176,9 @@ $static-font-path: '/assets/fonts/webfonts';
 .tray-content-show {
   height: 400px;
 }
+
+.current-buttons {
+  position:sticky;
+  bottom: 0;
+  background-color: white;
+}
