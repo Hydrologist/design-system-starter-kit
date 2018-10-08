@@ -213,6 +213,7 @@ const editunhide = () => {
   hide("readonly-table");
   unhide("editable-table");
   unhide("manage-footer");
+  unhide("navbar");
 }
 
 function hide(element) {
