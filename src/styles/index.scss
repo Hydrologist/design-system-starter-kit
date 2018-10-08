@@ -150,3 +150,29 @@ $static-font-path: '/assets/fonts/webfonts';
   background-color: rgba(0, 0, 0, .3);
   z-index: 3;
 }
+
+.tray-hidden {
+  //box-shadow: inset 0px 4px 3px rgba(50, 50, 50, 0.4);
+  display: none;
+  max-height: 500px;
+  width: 100%;
+}
+
+.tray-show {
+  display: table-row;
+}
+
+.tray-show>td {
+  box-shadow: inset 0px 4px 6px rgba(50, 50, 50, 0.25) !important;
+  background-color: white !important;
+}
+
+.tray-content {
+  height: 0;
+  overflow: hidden;
+  transition: height .25s;
+}
+
+.tray-content-show {
+  height: 400px;
+}

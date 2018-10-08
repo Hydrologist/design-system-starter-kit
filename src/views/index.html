@@ -13,7 +13,6 @@
   <script src="../scripts/app.js"></script>
 </head>
 <body>
-  <div id="edit-hider"></div>
   <div class="slds-p-top--medium slds-container--center slds-container--x-large">
     <div class="slds-m-bottom--medium slds-page-header slds-page-header_record-home">
       <div class="slds-page-header__row">
@@ -115,6 +114,12 @@
         </li>
         <li class="slds-button-group-item">
           <button id="visualize-button" onclick="visualizeclick();" class="slds-button slds-button_neutral">Visualize Products</button>
+        </li>
+        <li class="slds-button-group-item">
+          <button class="slds-button slds-button_brand" onclick="opentray();">Open</button>
+        </li>
+        <li class="slds-button-group-item">
+          <button class="slds-button slds-button_brand" onclick="closetray();">Close</button>
         </li>
       </ul>
     </article>
@@ -476,7 +481,7 @@
                           <input style="width: 7rem;" id="edit-price-input-1" class="slds-input edit-input" value="" type="number" />
                         </span>
                       </span>
-                      <span class="slds-text-body_small slds-text-color_weak"> / month</span>
+                      <span class="slds-text-body_small slds-text-color_weak"> /month</span>
                       <span>[<a href="javascript:void(0);">$600.00</a>]</span>
                     </td>
                     <td>
@@ -551,1016 +556,791 @@
             </div>
             <div class="slds-card__body">
               <div class="slds-table_edit_container slds-is-relative">
-                <table aria-multiselectable="true" class="slds-truncate slds-table no-cell-focus slds-table_bordered slds-table_edit slds-table_fixed-layout slds-table_resizable-cols" role="grid">
-                  <!-- Product List Header -- !PLH -->
+                <table id="readonly-table" class="slds-table slds-table_cell-buffer slds-table_bordered">
                   <thead>
                     <tr class="slds-line-height_reset">
-                      <th style="width:3.5rem;" scope="col"></th>
-                      <th class="slds-text-title_caps" style="width: 10rem;" scope="col">
-                        <a class="slds-th__action slds-text-link_reset" href="javascript:void(0);" role="button" tabindex="-1">
-                          <span class="slds-assistive-text">Sort by: </span>
-                          <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
-                            <span class="slds-truncate" title="Name">Product Name</span>
-                            <span class="slds-icon_container slds-icon-utility-arrowdown">
-                              <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
-                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown" xmlns:xlink="http://www.w3.org/1999/xlink" />
-                              </svg>
-                            </span>
-                          </div>
-                        </a>
-                        <div class="slds-resizable">
-                          <input aria-label="Product Name column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-29" max="1000" min="20" tabindex="-1" type="range" />
-                          <span class="slds-resizable__handle">
-                            <span class="slds-resizable__divider"></span>
-                          </span>
-                        </div>
-                      </th>
-                      <th style="width: 10.5rem;" class="slds-text-title_caps" scope="col">
-                        <a class="slds-th__action slds-text-link_reset" href="javascript:void(0);" role="button" tabindex="-1">
-                          <span class="slds-assistive-text">Sort by: </span>
-                          <div class="slds-grid slds-grid_align-end slds-grid_vertical-align-center slds-has-flexi-truncate">
-                            <span class="slds-truncate" title="Name">Adjusted Base Price</span>
-                            <span class="slds-icon_container slds-icon-utility-arrowdown">
-                              <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
-                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown" xmlns:xlink="http://www.w3.org/1999/xlink" />
-                              </svg>
-                            </span>
-                          </div>
-                        </a>
-                        <div class="slds-resizable">
-                          <input aria-label="Adjusted Base Price column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-29" max="1000" min="20" tabindex="-1" type="range" />
-                          <span class="slds-resizable__handle">
-                            <span class="slds-resizable__divider"></span>
-                          </span>
-                        </div>
-                      </th>
-                      <th class="slds-text-title_caps" style="width: 11rem;" scope="col">
-                        <a class="slds-th__action slds-text-link_reset" href="javascript:void(0);" role="button" tabindex="-1">
-                          <span class="slds-assistive-text">Sort by: </span>
-                          <div class="slds-grid slds-grid_align-end slds-grid_vertical-align-center slds-has-flexi-truncate">
-                            <span class="slds-truncate" title="Name">Unit Price</span>
-                            <span class="slds-icon_container slds-icon-utility-arrowdown">
-                              <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
-                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown" xmlns:xlink="http://www.w3.org/1999/xlink" />
-                              </svg>
-                            </span>
-                          </div>
-                        </a>
-                        <div class="slds-resizable">
-                          <input aria-label="Unit Price column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-29" max="1000" min="20" tabindex="-1" type="range" />
-                          <span class="slds-resizable__handle">
-                            <span class="slds-resizable__divider"></span>
-                          </span>
-                        </div>
-                      </th>
                       <th class="slds-text-title_caps" scope="col">
-                        <a class="slds-th__action slds-text-link_reset" href="javascript:void(0);" role="button" tabindex="-1">
-                          <span class="slds-assistive-text">Sort by: </span>
-                          <div class="slds-grid slds-grid_align-end slds-grid_vertical-align-center slds-has-flexi-truncate">
-                            <span class="slds-truncate" title="Name">Term</span>
-                            <span class="slds-icon_container slds-icon-utility-arrowdown">
-                              <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
-                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown" xmlns:xlink="http://www.w3.org/1999/xlink" />
-                              </svg>
-                            </span>
-                          </div>
-                        </a>
-                        <div class="slds-resizable">
-                          <input aria-label="Product Name column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-29" max="1000" min="20" tabindex="-1" type="range" />
-                          <span class="slds-resizable__handle">
-                            <span class="slds-resizable__divider"></span>
-                          </span>
-                        </div>
+                        <div class="slds-truncate" title="Name">Name</div>
                       </th>
-                      <th class="slds-text-title_caps" style="width: 9rem;" scope="col">
-                        <a class="slds-th__action slds-text-link_reset" href="javascript:void(0);" role="button" tabindex="-1">
-                          <span class="slds-assistive-text">Sort by: </span>
-                          <div class="slds-grid slds-grid_align-end slds-grid_vertical-align-center slds-has-flexi-truncate">
-                            <span class="slds-truncate" title="Name">Sales Price</span>
-                            <span class="slds-icon_container slds-icon-utility-arrowdown">
-                              <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
-                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown" xmlns:xlink="http://www.w3.org/1999/xlink" />
-                              </svg>
-                            </span>
-                          </div>
-                        </a>
-                        <div class="slds-resizable">
-                          <input aria-label="Sales Price column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-29" max="1000" min="20" tabindex="-1" type="range" />
-                          <span class="slds-resizable__handle">
-                            <span class="slds-resizable__divider"></span>
-                          </span>
-                        </div>
+                      <th class="slds-text-title_caps slds-text-align--right" scope="col">
+                        <div class="slds-truncate" title="Unit Price">Unit Price</div>
                       </th>
-                      <th style="width: 6rem;" class="slds-text-title_caps" scope="col">
-                        <a class="slds-th__action slds-text-link_reset" href="javascript:void(0);" role="button" tabindex="-1">
-                          <span class="slds-assistive-text">Sort by: </span>
-                          <div class="slds-grid slds-grid_align-end slds-grid_vertical-align-center slds-has-flexi-truncate">
-                            <span class="slds-truncate" title="Name">Quantity</span>
-                            <span class="slds-icon_container slds-icon-utility-arrowdown">
-                              <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
-                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown" xmlns:xlink="http://www.w3.org/1999/xlink" />
-                              </svg>
-                            </span>
-                          </div>
-                        </a>
-                        <div class="slds-resizable">
-                          <input aria-label="Quantity column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-29" max="1000" min="20" tabindex="-1" type="range" />
-                          <span class="slds-resizable__handle">
-                            <span class="slds-resizable__divider"></span>
-                          </span>
-                        </div>
+                      <th class="slds-text-title_caps slds-text-align--right" scope="col">
+                        <div class="slds-truncate" title="Term">Term</div>
                       </th>
-                      <th class="slds-text-title_caps" style="width: 10rem;" scope="col">
-                        <a class="slds-th__action slds-text-link_reset" href="javascript:void(0);" role="button" tabindex="-1">
-                          <span class="slds-assistive-text">Sort by: </span>
-                          <div class="slds-grid slds-grid_align-end slds-grid_vertical-align-center slds-has-flexi-truncate">
-                            <span class="slds-truncate" title="Name">Subtotal</span>
-                            <span class="slds-icon_container slds-icon-utility-arrowdown">
-                              <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
-                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown" xmlns:xlink="http://www.w3.org/1999/xlink" />
-                              </svg>
-                            </span>
-                          </div>
-                        </a>
-                        <div class="slds-resizable">
-                          <input aria-label="Subtotal column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-29" max="1000" min="20" tabindex="-1" type="range" />
-                          <span class="slds-resizable__handle">
-                            <span class="slds-resizable__divider"></span>
-                          </span>
-                        </div>
+                      <th class="slds-text-title_caps slds-text-align--right" scope="col">
+                        <div class="slds-truncate" title="Quantity">qty</div>
                       </th>
-                      <th class="slds-text-title_caps" scope="col" style="width: 6rem;">
-                        <a class="slds-th__action slds-text-link_reset" href="javascript:void(0);" role="button" tabindex="-1">
-                          <span class="slds-assistive-text">Sort by: </span>
-                          <div class="slds-grid slds-grid_align-end slds-grid_vertical-align-center slds-has-flexi-truncate">
-                            <span class="slds-truncate" title="Name">Discount</span>
-                            <span class="slds-icon_container slds-icon-utility-arrowdown">
-                              <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
-                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown" xmlns:xlink="http://www.w3.org/1999/xlink" />
-                              </svg>
-                            </span>
-                          </div>
-                        </a>
-                        <div class="slds-resizable">
-                          <input aria-label="Discount column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-29" max="1000" min="20" tabindex="-1" type="range" />
-                          <span class="slds-resizable__handle">
-                            <span class="slds-resizable__divider"></span>
-                          </span>
-                        </div>
+                      <th class="slds-text-title_caps slds-text-align--right" scope="col">
+                        <div class="slds-truncate" title="Discount">Discount</div>
                       </th>
-                      <th class="slds-text-title_caps" style="width: 10rem;" scope="col">
-                        <a class="slds-th__action slds-text-link_reset" href="javascript:void(0);" role="button" tabindex="-1">
-                          <span class="slds-assistive-text">Sort by: </span>
-                          <div class="slds-grid slds-grid_align-end slds-grid_vertical-align-center slds-has-flexi-truncate">
-                            <span class="slds-truncate" title="Name">Total Price</span>
-                            <span class="slds-icon_container slds-icon-utility-arrowdown">
-                              <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
-                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown" xmlns:xlink="http://www.w3.org/1999/xlink" />
-                              </svg>
-                            </span>
-                          </div>
-                        </a>
+                      <th class="slds-text-title_caps slds-text-align--right" scope="col">
+                        <div class="slds-truncate" title="Total Price">Total Price</div>
                       </th>
                     </tr>
                   </thead>
-                  <!-- Product List Body -- !PLB -->
                   <tbody>
-                    <!-- First Product -- !FP -->
-                    <tr aria-selected="false" class="slds-hint-parent">
-                      <td class="slds-text-align_center">
-                        <span class="slds-radio">
-                          <input id="radio-1" name="options" value="radio-1" type="radio" checked="true" onclick="loremselect();" />
-                          <label class="slds-radio__label" for="radio-1">
-                            <span class="slds-radio_faux"></span>
-                          </label>
-                        </span>
+                    <tr class="slds-hint-parent">
+                      <td data-label="Name">
+                        <div class="slds-truncate" title="Lorem Ipsum">Lorem Ipsum</div>
                       </td>
-                      <th data-label="Product Name">
-                        <span class="slds-grid">
-                          <span class="slds-truncate" title="Lorem Ipsum"><a href="javascript:void(0);">Lorem Ipsum</a></span>
-                          <button class="slds-hide slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" disabled="" tabindex="-1" title="Cannot edit Product Name">
-                            <svg class="slds-button__icon slds-button__icon_hint slds-button__icon_lock" aria-hidden="true">
-                              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#lock" xmlns:xlink="http://www.w3.org/1999/xlink" />
-                            </svg>
-                            <span class="slds-assistive-text">Cannot edit Product Name</span>
-                          </button>
-                          <!-- Product Upgrades Popover -- !PUP -->
-                          <button class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" tabindex="-1" title="Upgrades" onclick="puclick()">
-                            <svg class="slds-button__icon slds-icon-text-success slds-button__icon_hint slds-button__icon_level_up" aria-hidden="true">
-                              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#level_up" xmlns:xlink="http://www.w3.org/1999/xlink" />
-                            </svg>
-                            <span class="slds-assistive-text">Upgrades</span>
-                          </button>
-                        </span>
-                      </th>
-                      <td data-label="Adjusted Base Price">
-                        <span class="slds-cell-edit slds-grid slds-grid_align-end">
-                          <button class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" tabindex="-1" title="Cannot edit Adjusted Base Price">
-                            <svg class="slds-button__icon slds-button__icon_hint slds-button__icon_lock" aria-hidden="true">
-                              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#lock" xmlns:xlink="http://www.w3.org/1999/xlink" />
-                            </svg>
-                            <span class="slds-assistive-text">Cannot edit Adjusted Base Price</span>
-                          </button>
-                          <span style="text-align: right;" class="slds-truncate" title="$500.00/month">$500.00<span class="slds-text-body_small slds-text-color_weak"> / month</span></span>
-                        </span>
+                      <td data-label="Unit Price">
+                        <div class="slds-truncate slds-text-align--right">
+                          <span>$600.00</span>
+                          <span class="slds-text-body_small slds-text-color_weak">/month</span>
+                        </div>
                       </td>
-                      <td class="edit-cell" role="gridcell">
-                        <span class="slds-grid slds-grid_align-end">
-                          <!-- Pricing Tables Popover -- !PTP -->
-                          <button class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" tabindex="-1" title="Pricing Tables" onclick="ptclick()">
-                            <svg class="slds-button__icon slds-button__icon_hint slds-button__icon_table" aria-hidden="true">
-                              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#table" xmlns:xlink="http://www.w3.org/1999/xlink" />
-                            </svg>
-                            <span class="slds-assistive-text">Pricing Tables</span>
-                          </button>
-                          <span style="text-align: right;" class="slds-truncate" title="$500.00/month">$500.00<span class="slds-text-body_small slds-text-color_weak"> / month</span></span>
-                          <button class="slds-button slds-button_icon slds-cell-edit__button slds-m-left--xx-small" tabindex="-1" title="Edit Unit Price">
-                            <svg class="slds-button__icon slds-button__icon_hint slds-button__icon_edit" aria-hidden="true">
-                              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#edit" xmlns:xlink="http://www.w3.org/1999/xlink" />
-                            </svg>
-                            <span class="slds-assistive-text">Edit Unit Price</span>
-                          </button>
-                        </span>
+                      <td data-label="Term">
+                        <div class="slds-truncate slds-text-align--right">
+                          12
+                        </div>
                       </td>
-                      <td class="edit-cell" role="gridcell">
-                        <span class="slds-grid slds-grid_align-end">
-                          <span style="text-align: right;" class="slds-truncate" title="12">12</span>
-                          <button class="slds-button slds-button_icon slds-cell-edit__button slds-m-left--xx-small" tabindex="-1" title="Edit Term">
-                            <svg class="slds-button__icon slds-button__icon_hint slds-button__icon_edit" aria-hidden="true">
-                              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#edit" xmlns:xlink="http://www.w3.org/1999/xlink" />
-                            </svg>
-                            <span class="slds-assistive-text">Edit Term</span>
-                          </button>
-                        </span>
+                      <td data-label="Quantity">
+                        <div class="slds-truncate slds-text-align--right">
+                          3
+                        </div>
                       </td>
-                      <td data-label="Sales Price">
-                        <span class="slds-cell-edit slds-grid slds-grid_align-end">
-                          <button class="slds-button slds-button_icon slds-cell-edit__button" tabindex="-1" title="Cannot edit Sales Price">
-                            <svg class="slds-button__icon slds-button__icon_hint slds-button__icon_lock" aria-hidden="true">
-                              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#lock" xmlns:xlink="http://www.w3.org/1999/xlink" />
-                            </svg>
-                            <span class="slds-assistive-text">Cannot edit Sales Price</span>
-                          </button>
-                          <span style="text-align: right;" class="slds-truncate" title="$6000.00/year">$6000.00<span class="slds-text-body_small slds-text-color_weak"> / year</span></span>
-                        </span>
+                      <td data-label="Discount">
+                        <div class="slds-truncate slds-text-align--right">
+                          10%
+                        </div>
                       </td>
-                      <td class="edit-cell" role="gridcell">
-                        <span class="slds-grid slds-grid_align-end">
-                          <span style="text-align: right;" class="slds-truncate" title="3">3</span>
-                          <button class="slds-button slds-button_icon slds-cell-edit__button slds-m-left--xx-small" tabindex="-1" title="Edit Quantity">
-                            <svg class="slds-button__icon slds-button__icon_hint slds-button__icon_edit" aria-hidden="true">
-                              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#edit" xmlns:xlink="http://www.w3.org/1999/xlink" />
-                            </svg>
-                            <span class="slds-assistive-text">Edit Quantity</span>
-                          </button>
-                        </span>
-                      </td>
-                      <td data-label="Subtotal">
-                        <span class="slds-cell-edit slds-grid slds-grid_align-end">
-                          <button class="slds-button slds-button_icon slds-cell-edit__button" tabindex="-1" title="Cannot edit Subtotal">
-                            <svg class="slds-button__icon slds-button__icon_hint slds-button__icon_lock" aria-hidden="true">
-                              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#lock" xmlns:xlink="http://www.w3.org/1999/xlink" />
-                            </svg>
-                            <span class="slds-assistive-text">Cannot edit Subtotal</span>
-                          </button>
-                          <span style="text-align: right;" class="slds-truncate" title="$18000.00/year">$18000.00<span class="slds-text-body_small slds-text-color_weak"> / year</span></span>
-                        </span>
-                      </td>
-                      <td class="edit-cell" role="gridcell">
-                        <span class="slds-grid slds-grid_align-end">
-                          <span style="text-align: right;" class="slds-truncate" title="10%">10%</span>
-                          <button class="slds-button slds-button_icon slds-cell-edit__button slds-m-left--xx-small" tabindex="-1" title="Edit Discount">
-                            <svg class="slds-button__icon slds-button__icon_hint slds-button__icon_edit" aria-hidden="true">
-                              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#edit" xmlns:xlink="http://www.w3.org/1999/xlink" />
-                            </svg>
-                            <span class="slds-assistive-text">Edit Discount</span>
-                          </button>
-                        </span>
-                      </td>
-                      <td data-label="Total Price">
-                        <span class="slds-cell-edit slds-grid slds-grid_align-end">
-                          <button class="slds-button slds-button_icon slds-cell-edit__button" tabindex="-1" title="Cannot edit Total Price">
-                            <svg class="slds-button__icon slds-button__icon_hint slds-button__icon_lock" aria-hidden="true">
-                              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#lock" xmlns:xlink="http://www.w3.org/1999/xlink" />
-                            </svg>
-                            <span class="slds-assistive-text">Cannot edit Total Price</span>
-                          </button>
-                          <span style="text-align: right;" class="slds-truncate" title="$16200.00/year">$16200.00<span class="slds-text-body_small slds-text-color_weak"> / year</span></span>
-                        </span>
+                      <td data-label="Term">
+                        <div class="slds-truncate slds-text-align--right">
+                          <span>$16200.00</span>
+                          <span class="slds-text-body_small slds-text-color_weak">/year</span>
+                        </div>
                       </td>
                     </tr>
-                    <!-- Second Product -- !SP -->
-                    <tr aria-selected="false" class="slds-hint-parent">
-                      <td class="slds-text-align_center">
-                        <span class="slds-radio">
-                          <input id="radio-2" name="options" value="radio-2" type="radio" onclick="genericselect();" />
-                          <label class="slds-radio__label" for="radio-2">
-                            <span class="slds-radio_faux"></span>
-                          </label>
-                        </span>
+                    <tr class="slds-hint-parent">
+                      <td data-label="Name">
+                        <div class="slds-truncate" title="Lorem Ipsum">Perfectly Generic Object</div>
                       </td>
-                      <th data-label="Product Name">
-                        <span class="slds-grid">
-                          <span class="slds-truncate" title="Perfectly Generic Object"><a href="javascript:void(0);">Perfectly Generic Object</a></span>
-                          <button class="slds-hide slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" disabled="" tabindex="-1" title="Cannot edit Product Name">
-                            <svg class="slds-button__icon slds-button__icon_hint slds-button__icon_lock" aria-hidden="true">
-                              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#lock" xmlns:xlink="http://www.w3.org/1999/xlink" />
-                            </svg>
-                            <span class="slds-assistive-text">Cannot edit Product Name</span>
-                          </button>
-                        </span>
-                      </th>
-                      <td data-label="Adjusted Base Price">
-                        <span class="slds-cell-edit slds-grid slds-grid_align-end">
-                          <button class="slds-button slds-button_icon slds-cell-edit__button" tabindex="-1" title="Cannot edit Adjusted Base Price">
-                            <svg class="slds-button__icon slds-button__icon_hint slds-button__icon_lock" aria-hidden="true">
-                              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#lock" xmlns:xlink="http://www.w3.org/1999/xlink" />
-                            </svg>
-                            <span class="slds-assistive-text">Cannot edit Adjusted Base Price</span>
-                          </button>
-                          <span style="text-align: right;" class="slds-truncate" title="$200.00">$200.00</span>
-                        </span>
+                      <td data-label="Unit Price">
+                        <div class="slds-truncate slds-text-align--right">
+                          <span>$200.00</span>
+                          <span class="slds-text-body_small slds-text-color_weak">/month</span>
+                        </div>
                       </td>
-                      <td class="edit-cell" role="gridcell">
-                        <span class="slds-grid slds-grid_align-end">
-                          <span style="text-align: right;" class="slds-truncate" title="$200.00">$200.00</span>
-                          <button class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_xx-small" tabindex="-1" title="Edit Unit Price">
-                            <svg class="slds-button__icon slds-button__icon_hint slds-button__icon_edit" aria-hidden="true">
-                              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#edit" xmlns:xlink="http://www.w3.org/1999/xlink" />
-                            </svg>
-                            <span class="slds-assistive-text">Edit Unit Price</span>
-                          </button>
-                        </span>
+                      <td data-label="Term">
+                        <div class="slds-truncate slds-text-align--right">
+                          
+                        </div>
                       </td>
-                      <td role="gridcell">
-                        <span class="slds-grid slds-grid_align-end">
-                          <button class="slds-hide slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" disabled="" tabindex="-1" title="This is not a subscription product">
-                            <svg class="slds-button__icon slds-button__icon_hint slds-button__icon_lock" aria-hidden="true">
-                              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#lock" xmlns:xlink="http://www.w3.org/1999/xlink" />
-                            </svg>
-                            <span class="slds-assistive-text">This is not a subscription product</span>
-                          </button>
-                          <span style="text-align: right;" class="slds-truncate" title=""></span>
-                        </span>
+                      <td data-label="Quantity">
+                        <div class="slds-truncate slds-text-align--right">
+                          2
+                        </div>
                       </td>
-                      <td data-label="Sales Price">
-                        <span class="slds-cell-edit slds-grid slds-grid_align-end">
-                          <button class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_xx-small" tabindex="-1" title="Cannot edit Sales Price">
-                            <svg class="slds-button__icon slds-button__icon_hint slds-button__icon_lock" aria-hidden="true">
-                              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#lock" xmlns:xlink="http://www.w3.org/1999/xlink" />
-                            </svg>
-                            <span class="slds-assistive-text">Cannot edit Sales Price</span>
-                          </button>
-                          <span style="text-align: right;" class="slds-truncate" title="$200.00">$200.00</span>
-                        </span>
+                      <td data-label="Discount">
+                        <div class="slds-truncate slds-text-align--right">
+                          
+                        </div>
                       </td>
-                      <td class="edit-cell" role="gridcell">
-                        <span class="slds-grid slds-grid_align-end">
-                          <span style="text-align: right;" class="slds-truncate" title="2">2</span>
-                          <button class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_xx-small" tabindex="-1" title="Edit Quantity">
-                            <svg class="slds-button__icon slds-button__icon_hint slds-button__icon_edit" aria-hidden="true">
-                              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#edit" xmlns:xlink="http://www.w3.org/1999/xlink" />
-                            </svg>
-                            <span class="slds-assistive-text">Edit Quantity</span>
-                          </button>
-                        </span>
-                      </td>
-                      <td data-label="Subtotal">
-                        <span class="slds-cell-edit slds-grid slds-grid_align-end">
-                          <button class="slds-button slds-button_icon slds-cell-edit__button" tabindex="-1" title="Cannot edit Subtotal">
-                            <svg class="slds-button__icon slds-button__icon_hint slds-button__icon_lock" aria-hidden="true">
-                              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#lock" xmlns:xlink="http://www.w3.org/1999/xlink" />
-                            </svg>
-                            <span class="slds-assistive-text">Cannot edit Subtotal</span>
-                          </button>
-                          <span style="text-align: right;" class="slds-truncate" title="$400.00">$400.00</span>
-                        </span>
-                      </td>
-                      <td class="edit-cell" role="gridcell">
-                        <span class="slds-grid slds-grid_align-spread">
-                          <span style="text-align: right;" class="slds-truncate" title=""></span>
-                          <button class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_xx-small" tabindex="-1" title="Edit Discount">
-                            <svg class="slds-button__icon slds-button__icon_hint slds-button__icon_edit" aria-hidden="true">
-                              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#edit" xmlns:xlink="http://www.w3.org/1999/xlink" />
-                            </svg>
-                            <span class="slds-assistive-text">Edit Discount</span>
-                          </button>
-                        </span>
-                      </td>
-                      <td data-label="Total Price">
-                        <span class="slds-cell-edit slds-grid slds-grid_align-end">
-                          <button class="slds-button slds-button_icon slds-cell-edit__button" tabindex="-1" title="Cannot edit Total Price">
-                            <svg class="slds-button__icon slds-button__icon_hint slds-button__icon_lock" aria-hidden="true">
-                              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#lock" xmlns:xlink="http://www.w3.org/1999/xlink" />
-                            </svg>
-                            <span class="slds-assistive-text">Cannot edit Total Price</span>
-                          </button>
-                          <span style="text-align: right;" class="slds-truncate" title="$400.00">$400.00</span>
-                        </span>
+                      <td data-label="Term">
+                        <div class="slds-truncate slds-text-align--right">
+                          $400.00
+                        </div>
                       </td>
                     </tr>
                   </tbody>
                 </table>
-              </div>
-            </div>
-          </article>
-        </div>
-        <!-- Left Panel -- !LP -->
-        <div id="left-panel" class="edit-card slds-col slds-size_1-of-3 slds-p-right--xx-small slds-hide">
-          <article class="slds-card" style="height:400px;">
-            <div class="slds-card__body slds-card__body_inner">
-              <div id="lorem-pricing" class="slds-grid slds-wrap slds-grid_align-spread">
-                <div class="slds-col slds-size_1-of-1 slds-m-bottom--medium">
-                  <div class="slds-m-top--small slds-text-heading--large" style="text-align: center;">
-                    Pricing for Lorem Ipsum
-                  </div>
-                </div>
-                <!-- Left Panel First Row -- !LP1R -->
-                <div class="slds-col slds-size_1-of-1 slds-grid">
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Adjusted Base Price
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $500.00<span class="slds-text-body_small slds-text-color_weak"> / year</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Unit Price
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $500.00<span class="slds-text-body_small slds-text-color_weak"> / year</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Left Panel Second Row -- !LP2R -->
-                <div class="slds-col slds-size_1-of-1 slds-grid">
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Term
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          12
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Sales Price
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $6000.00<span class="slds-text-body_small slds-text-color_weak"> / year</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Left Panel Third Row -- !LP3R -->
-                <div class="slds-col slds-size_1-of-1 slds-grid">
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Quantity
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          3
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Subtotal
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $18000.00<span class="slds-text-body_small slds-text-color_weak"> / year</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Left Panel Fourth Row -- !LP4R -->
-                <div class="slds-col slds-size_1-of-1 slds-grid">
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Discount
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          10%
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Total Price
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $16200.00<span class="slds-text-body_small slds-text-color_weak"> / year</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div id="generic-pricing" class="slds-hide slds-grid slds-wrap slds-grid_align-spread">
-                <div class="slds-col slds-size_1-of-1 slds-m-bottom--medium">
-                  <div class="slds-m-top--small slds-text-heading--large" style="text-align: center;">
-                    Pricing for Perfectly Generic Object
-                  </div>
-                </div>
-                <!-- Left Panel First Row -- !2LP1R -->
-                <div class="slds-col slds-size_1-of-1 slds-grid">
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Adjusted Base Price
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $200.00
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Unit Price
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $200.00
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Left Panel Third Row -- !2LP2R -->
-                <div class="slds-col slds-size_1-of-1 slds-grid">
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Quantity
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          2
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Total Price
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $400.00
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Left Panel Upgrade Preview -- !LPUP -->
-              <div id="upgrade-preview" class="slds-hide slds-grid slds-wrap slds-grid_align-spread">
-                <div class="slds-col slds-size_1-of-1 slds-m-bottom--medium">
-                  <div class="slds-m-top--small slds-text-heading--large slds-text-align--center">
-                    Upgrade Preview
-                  </div>
-                  <div class="slds-m-top--xx-small slds-text-heading--small slds-text-align--center">
-                    Lorem Ipsum -> Ultra Lorem Ipsum
-                  </div>
-                </div>
-                <div class="slds-col slds-size_1-of-1 slds-m-bottom--x-small">
-                  <div class="slds-form-element">
-                    <label class="slds-form-element__label" for="basis-select">Base Price Adjustment</label>
-                    <div class="slds-form-element__control">
-                      <div class="slds-select_container">
-                        <select class="slds-select" id="select-01">
-                          <option>Reset to new List Price</option>
-                          <option>New List Price with Existing Adjustment</option>
-                          <option>Keep existing Base Price</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="slds-col slds-size_1-of-1 slds-grid">
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Current Adjusted Base Price
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $500.00<span class="slds-text-body_small slds-text-color_weak"> / month</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        New Adjusted Base Price
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $1500.00<span class="slds-text-body_small slds-text-color_weak"> / month</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="slds-col slds-size_1-of-1 slds-grid">
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Current Subtotal
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $18000.00<span class="slds-text-body_small slds-text-color_weak"> / year</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        New Subtotal
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $180000.00<span class="slds-text-body_small slds-text-color_weak"> / year</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="slds-col slds-size_1-of-1 slds-grid">
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        Current Total
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $16200.00<span class="slds-text-body_small slds-text-color_weak"> / year</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="slds-col slds-size_1-of-2">
-                    <div class="slds-m-bottom--small">
-                      <span class="slds-form-element__label">
-                        New Total
-                      </span>
-                      <div class="slds-form-element__control">
-                        <div class="slds-form-element__static">
-                          $162000.00<span class="slds-text-body_small slds-text-color_weak"> / year</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="slds-col slds-size_1-of-1 slds-text-align--center">
-                  <button class="slds-button slds-button_brand">Save</button>
-                  <button class="slds-button slds-button_neutral" onclick="loremselect();">Cancel</button>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
-        <!-- Right Panel -- !RP -->
-        <div id="right-panel" class="edit-card slds-col slds-size_2-of-3 slds-p-left--xx-small slds-hide">
-          <article class="slds-card" style="height:400px;">
-            <div class="slds-card__body">
-              <div class="slds-tabs_default">
-                <ul class="slds-tabs_default__nav" role="tablist">
-                  <li id="sh-tab" class="slds-tabs_default__item slds-is-active" title="Sales History" role="presentation">
-                    <a class="slds-tabs_default__link" href="javascript:shclick();" role="tab" tabindex="-1" aria-selected="true" aria-controls="tab-default-3" id="tab-default-3__item">Sales History</a>
-                  </li>
-                  <li id="pu-tab" class="slds-tabs_default__item" title="Product Upgrades" role="presentation">
-                    <a class="slds-tabs_default__link" href="javascript:puclick();" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-2" id="tab-default-2__item">Product Upgrades</a>
-                  </li>
-                  <li id="pt-tab" class="slds-tabs_default__item" title="Pricing Tables" role="presentation">
-                    <a class="slds-tabs_default__link" href="javascript:ptclick();" role="tab" tabindex="0" aria-selected="false" aria-controls="tab-default-1" id="tab-default-1__item">Pricing Tables</a>
-                  </li>
-                </ul>
-                <!-- Pricing Tables Content -- !PTC -->
-                <div id="tab-default-1" class="slds-tabs_default__content slds-hide" role="tabpanel" aria-labelledby="tab-default-1__item">
-                  <div class="slds-grid slds-wrap slds-grid_align-spread">
-                    <div class="slds-col slds-size_1-of-1 slds-border_bottom slds-p-bottom--small">
-                      <div style="text-align: center;" class="slds-text-heading--large">
-                        Pricing Tables
-                      </div>
-                    </div>
-                    <div class="slds-col slds-size_1-of-1 slds-scrollable_x">
-                      <table class="slds-table slds-table_cell-buffer slds-table_bordered">
-                        <thead>
-                          <th class="slds-line-height_reset">
-                            <div class="slds-text-title_caps" scope="col">
-                              <div class="slds-truncate slds-text-align_right" title="Quantity">Quantity</div>
-                            </div>
-                          </th>
-                          <th class="slds-line-height_reset">
-                            <div class="slds-text-title_caps" scope="col">
-                              <div class="slds-truncate slds-text-align_right" title="Discount Amount">Discount Amount</div>
-                            </div>
-                          </th>
-                          <th class="slds-line-height_reset">
-                            <div class="slds-text-title_caps" scope="col">
-                              <div class="slds-truncate slds-text-align_right" title="Discount Percent">Discount Percent</div>
-                            </div>
-                          </th>
-                          <th class="slds-line-height_reset">
-                            <div class="slds-text-title_caps" scope="col">
-                              <div class="slds-truncate slds-text-align_right" title="Tier Unit Price">Tier Unit Price</div>
-                            </div>
-                          </th>
-                        </thead>
-                        <tbody>
-                          <tr class="slds-hint-parent">
-                            <th data-label="Quantity" scope="row">
-                              <div class="slds-truncate slds-text-align_right" title="1 to 2">1 to 2</div>
-                            </th>
-                            <td data-label="Discount Amount">
-                              <div class="slds-truncate slds-text-align_right" title="$0.00/month">$0.00<span class="slds-text-body_small slds-text-color_weak"> / month</span></div>
-                            </td>
-                            <td data-label="Discount Percent" scope="row">
-                              <div class="slds-truncate slds-text-align_right" title="0.00%">0.00%</div>
-                            </td>
-                            <td data-label="Tier Unit Price">
-                              <div class="slds-truncate slds-text-align_right" title="$600.00/month">$600.00<span class="slds-text-body_small slds-text-color_weak"> / month</span></div>
-                            </td>
-                          </tr>
-                          <tr style="background-color:blanchedalmond;" class="slds-hint-parent">
-                            <th data-label="Quantity" scope="row">
-                              <div class="slds-truncate slds-text-align_right" title="3">3 to &infin;</div>
-                            </th>
-                            <td data-label="Discount Amount">
-                              <div class="slds-truncate slds-text-align_right" title="$100.00/month">$100.00<span class="slds-text-body_small slds-text-color_weak"> / month</span></div>
-                            </td>
-                            <td data-label="Discount Percent" scope="row">
-                              <div class="slds-truncate slds-text-align_right" title="0.00%">0.00%</div>
-                            </td>
-                            <td data-label="Tier Unit Price">
-                              <div class="slds-truncate slds-text-align_right" title="$500.00/month">$500.00<span class="slds-text-body_small slds-text-color_weak"> / month</span></div>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                    <div class="slds-col slds-size_1-of-1 slds-text-heading--medium slds-section_title slds-theme_shade slds-m-top--large">
-                      <span class="slds-truncate slds-p-horizontal_small" title="Section Title">Quantity Details</span>
-                    </div>
-                    <div class="slds-col slds-size_1-of-1 slds-grid slds-grid_align-center">
-                      <div class="slds-col size_1-of-2">
-                        <span class="slds-form-element__label">
-                          Quantity this sale
+                <table id="editable-table" class="slds-table slds-table_cell-buffer slds-table_bordered slds-hide">
+                  <thead>
+                    <tr class="slds-line-height_reset">
+                      <th class="slds-text-title_caps" scope="col">
+                        <div class="slds-truncate" title="Name">Name</div>
+                      </th>
+                      <th class="slds-text-title_caps" scope="col">
+                        <div class="slds-truncate" title="Unit Price">Unit Price</div>
+                      </th>
+                      <th class="slds-text-title_caps" scope="col">
+                        <div class="slds-truncate" title="Term">Term</div>
+                      </th>
+                      <th class="slds-text-title_caps" scope="col">
+                        <div class="slds-truncate" title="Quantity">qty</div>
+                      </th>
+                      <th class="slds-text-title_caps" scope="col">
+                        <div class="slds-truncate" title="Discount">Discount</div>
+                      </th>
+                      <th class="slds-text-title_caps slds-text-align--right" scope="col">
+                        <div class="slds-truncate" title="Description">Total Price</div>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="slds-hint-parent">
+                      <td data-label="Name">
+                        <div class="slds-truncate" title="Lorem Ipsum">Lorem Ipsum</div>
+                      </td>
+                      <td data-label="Unit Price">
+                        <span class="slds-form-element">
+                          <span class="slds-form-element__control">
+                            <input style="width: 7rem;" id="edit-price-input-1" class="slds-input edit-input" value="" type="number" />
+                          </span>
                         </span>
-                        <div class="slds-form-element__control">
-                          <div class="slds-form-element__static">
-                            3
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div id="tab-default-2" class="slds-tabs_default__content slds-hide" role="tabpanel" aria-labelledby="tab-default-2__item">
-                  <div class="slds-grid slds-wrap slds-grid_align-spread">
-                    <div class="slds-col slds-size_1-of-1 slds-border_bottom slds-p-bottom--small">
-                      <div style="text-align: center;" class="slds-text-heading--large">
-                        Product Upgrades
-                      </div>
-                    </div>
-                    <div class="slds-col slds-size_1-of-1 slds-scrollable_x">
-                      <!-- Product Upgrades Table -- !PUT -->
-                      <table class="slds-table slds-table_cell-buffer slds-table_bordered">
-                        <thead>
-                          <th class="slds-line-height_reset">
-                            <div class="slds-text-title_caps" scope="col">
-                              <div class="slds-truncate  slds-text-align_center" title="Product">Product</div>
-                            </div>
-                          </th>
-                          <th class="slds-line-height_reset">
-                            <div class="slds-text-title_caps" scope="col">
-                              <div class="slds-truncate slds-text-align_center" title="Upgrade">Upgrade</div>
-                            </div>
-                          </th>
-                          <th class="slds-line-height_reset">
-                            <div class="slds-text-title_caps" scope="col">
-                              <div class="slds-truncate slds-text-align_right" title="List Price">List Price</div>
-                            </div>
-                          </th>
-                        </thead>
-                        <tbody>
-                          <tr class="slds-hint-parent">
-                            <th data-label="Product" scope="row">
-                              <div class="slds-truncate slds-text-align_center" title="Ultra Lorem Ipsum">Ultra Lorem Ipsum</div>
-                            </th>
-                            <td data-label="Recommendation">
-                              <a class="recommendation-link" href="javascript:upgradeselect();">
-                                <div id="recupgrade" class="recommendation-text recommended-button slds-truncate slds-text-align_center">
-                                  Recommended Upgrade
+                        <span class="slds-text-body_small slds-text-color_weak"> /month</span>
+                        <span>[<a href="javascript:void(0);">$600.00</a>]</span>
+                      </td>
+                      <td>
+                        <span class="slds-form-element">
+                          <span class="slds-form-element__control">
+                            <input style="width: 6rem;" id="edit-term-input-1" class="slds-input edit-input" value="" type="number" />
+                          </span>
+                        </span>
+                        <span>[<a href="javascript:void(0);">12</a>]</span>
+                      </td>
+                      <td>
+                        <span class="slds-form-element">
+                          <span class="slds-form-element__control">
+                            <input style="width: 6rem;" id="edit-qty-input-1" class="slds-input edit-input" value="" type="number" />
+                          </span>
+                        </span>
+                      </td>
+                      <td>
+                        <span class="slds-form-element">
+                          <span class="slds-form-element__control">
+                            <input id="edit-discount-input-1" class="slds-input edit-input" value="" type="number" />
+                          </span>
+                        </span>
+                        <span class="slds-text-body_small slds-text-color_weak">%</span>
+                      </td>
+                      <td class="slds-text-align--right">
+                        $16200.00<span class="slds-text-body_small slds-text-color_weak"> /month</span>
+                      </td>
+                    </tr>
+                    <!-- Tray -- !TRAY -->
+                    <tr id="tray" class="tray-hidden">
+                      <td colspan="8">
+                        <div id="tray-content" class="tray-content slds-grid">
+                          <div class="slds-col slds-size_1-of-3 slds-border--right">
+                            <div id="lorem-pricing" class="slds-grid slds-wrap slds-grid_align-spread">
+                              <div class="slds-col slds-size_1-of-1 slds-m-bottom--medium">
+                                <div class="slds-m-top--small slds-text-heading--large" style="text-align: center;">
+                                  Pricing for Lorem Ipsum
                                 </div>
-                              </a>
-                            </td>
-                            <td data-label="List Price" scope="row">
-                              <div class="slds-truncate slds-text-align_right" title="$2000.00">$2000.00<span class="slds-text-body_small slds-text-color_weak"> / month</span></div>
-                            </td>
-                          </tr>
-                          <tr class="slds-hint-parent">
-                            <th data-label="Product" scope="row">
-                              <div class="slds-truncate slds-text-align_center" title="Super Lorem Ipsum">Super Lorem Ipsum</div>
-                            </th>
-                            <td data-label="Recommendation">
-                              <div class="recommendation-text recommended-button slds-truncate slds-text-align_center" title="Forced">
-                                Forced Upgrade
                               </div>
-                            </td>
-                            <td data-label="List Price" scope="row">
-                              <div class="slds-truncate  slds-text-align_right" title="$1000.00">$1000.00<span class="slds-text-body_small slds-text-color_weak"> / month</span></div>
-                            </td>
-                          </tr>
-                          <tr class="slds-hint-parent">
-                            <th data-label="Product" scope="row">
-                              <div class="slds-truncate slds-text-align_center" title="Super Lorem Ipsum">Lorem Ipsum</div>
-                            </th>
-                            <td data-label="Recommendation">
-                              <div class="recommendation-text slds-truncate slds-text-align_center" title="Current">
-                                Current
+                              <!-- Left Panel First Row -- !LP1R -->
+                              <div class="slds-col slds-size_1-of-1 slds-grid">
+                                <div class="slds-col slds-size_1-of-2">
+                                  <div class="slds-m-bottom--small">
+                                    <span class="slds-form-element__label">
+                                      Adjusted Base Price
+                                    </span>
+                                    <div class="slds-form-element__control">
+                                      <div class="slds-form-element__static">
+                                        $500.00<span class="slds-text-body_small slds-text-color_weak"> / year</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                  <div class="slds-m-bottom--small">
+                                    <span class="slds-form-element__label">
+                                      Unit Price
+                                    </span>
+                                    <div class="slds-form-element__control">
+                                      <div class="slds-form-element__static">
+                                        $500.00<span class="slds-text-body_small slds-text-color_weak"> / year</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
-                            </td>
-                            <td data-label="List Price" scope="row">
-                              <div class="slds-truncate slds-text-align_right" title="$600.00">$600.00<span class="slds-text-body_small slds-text-color_weak"> / month</span></div>
-                            </td>
-                          </tr>
-                          <tr class="slds-hint-parent">
-                            <th data-label="Product" scope="row">
-                              <div class="slds-truncate slds-text-align_center" title="Budget Lorem Ipsum">Budget Lorem Ipsum</div>
-                            </th>
-                            <td data-label="Recommendation">
-                              <div class="downgrade-button recommendation-text slds-truncate slds-text-align_center">
-                                Available Downgrade
+                              <!-- Left Panel Second Row -- !LP2R -->
+                              <div class="slds-col slds-size_1-of-1 slds-grid">
+                                <div class="slds-col slds-size_1-of-2">
+                                  <div class="slds-m-bottom--small">
+                                    <span class="slds-form-element__label">
+                                      Term
+                                    </span>
+                                    <div class="slds-form-element__control">
+                                      <div class="slds-form-element__static">
+                                        12
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                  <div class="slds-m-bottom--small">
+                                    <span class="slds-form-element__label">
+                                      Sales Price
+                                    </span>
+                                    <div class="slds-form-element__control">
+                                      <div class="slds-form-element__static">
+                                        $6000.00<span class="slds-text-body_small slds-text-color_weak"> / year</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
-                            </td>
-                            <td data-label="List Price" scope="row">
-                              <div class="slds-truncate  slds-text-align_right" title="$300.00">$300.00<span class="slds-text-body_small slds-text-color_weak"> / month</span></div>
-                            </td>
-                          </tr>
-                          <tr class="slds-hint-parent">
-                            <th data-label="Product" scope="row">
-                              <div class="slds-truncate slds-text-align_center" title="Trial Lorem Ipsum">Trial Lorem Ipsum</div>
-                            </th>
-                            <td data-label="Recommendation">
-                              <div class="blocked-downgrade recommendation-text slds-truncate slds-text-align_center">
-                                Unavailable Downgrade
+                              <!-- Left Panel Third Row -- !LP3R -->
+                              <div class="slds-col slds-size_1-of-1 slds-grid">
+                                <div class="slds-col slds-size_1-of-2">
+                                  <div class="slds-m-bottom--small">
+                                    <span class="slds-form-element__label">
+                                      Quantity
+                                    </span>
+                                    <div class="slds-form-element__control">
+                                      <div class="slds-form-element__static">
+                                        3
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                  <div class="slds-m-bottom--small">
+                                    <span class="slds-form-element__label">
+                                      Subtotal
+                                    </span>
+                                    <div class="slds-form-element__control">
+                                      <div class="slds-form-element__static">
+                                        $18000.00<span class="slds-text-body_small slds-text-color_weak"> / year</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
-                            </td>
-                            <td data-label="List Price" scope="row">
-                              <div class="slds-truncate  slds-text-align_right" title="$0.00">$0.00<span class="slds-text-body_small slds-text-color_weak"> / month</span></div>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-                <div id="tab-default-3" class="slds-tabs_default__content slds-show" role="tabpanel" aria-labelledby="tab-default-3__item">
-                  <div class="slds-grid slds-wrap slds-grid_align-spread">
-                    <div class="slds-col slds-size_1-of-1 slds-p-bottom--small">
-                      <div style="text-align: center;" class="slds-text-heading--large">
-                        Sales History for Lorem Ipsum
-                      </div>
-                    </div>
-                    <div class="slds-col slds-size_1-of-1 slds-scrollable_x">
-                      <table class="slds-table slds-table_cell-buffer slds-table_bordered">
-                        <thead>
-                          <th class="slds-line-height_reset">
-                            <div class="slds-text-title_caps" scope="col">
-                              <div class="slds-truncate slds-text-align_right" title="Effective Date">Effective Date</div>
+                              <!-- Left Panel Fourth Row -- !LP4R -->
+                              <div class="slds-col slds-size_1-of-1 slds-grid">
+                                <div class="slds-col slds-size_1-of-2">
+                                  <div class="slds-m-bottom--small">
+                                    <span class="slds-form-element__label">
+                                      Discount
+                                    </span>
+                                    <div class="slds-form-element__control">
+                                      <div class="slds-form-element__static">
+                                        10%
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                  <div class="slds-m-bottom--small">
+                                    <span class="slds-form-element__label">
+                                      Total Price
+                                    </span>
+                                    <div class="slds-form-element__control">
+                                      <div class="slds-form-element__static">
+                                        $16200.00<span class="slds-text-body_small slds-text-color_weak"> / year</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
-                          </th>
-                          <th class="slds-line-height_reset">
-                            <div class="slds-text-title_caps" scope="col">
-                              <div class="slds-truncate slds-text-align_right" title="End Date">End Date</div>
+                            <div id="generic-pricing" class="slds-hide slds-grid slds-wrap slds-grid_align-spread">
+                              <div class="slds-col slds-size_1-of-1 slds-m-bottom--medium">
+                                <div class="slds-m-top--small slds-text-heading--large" style="text-align: center;">
+                                  Pricing for Perfectly Generic Object
+                                </div>
+                              </div>
+                              <!-- Left Panel First Row -- !2LP1R -->
+                              <div class="slds-col slds-size_1-of-1 slds-grid">
+                                <div class="slds-col slds-size_1-of-2">
+                                  <div class="slds-m-bottom--small">
+                                    <span class="slds-form-element__label">
+                                      Adjusted Base Price
+                                    </span>
+                                    <div class="slds-form-element__control">
+                                      <div class="slds-form-element__static">
+                                        $200.00
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                  <div class="slds-m-bottom--small">
+                                    <span class="slds-form-element__label">
+                                      Unit Price
+                                    </span>
+                                    <div class="slds-form-element__control">
+                                      <div class="slds-form-element__static">
+                                        $200.00
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- Left Panel Third Row -- !2LP2R -->
+                              <div class="slds-col slds-size_1-of-1 slds-grid">
+                                <div class="slds-col slds-size_1-of-2">
+                                  <div class="slds-m-bottom--small">
+                                    <span class="slds-form-element__label">
+                                      Quantity
+                                    </span>
+                                    <div class="slds-form-element__control">
+                                      <div class="slds-form-element__static">
+                                        2
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                  <div class="slds-m-bottom--small">
+                                    <span class="slds-form-element__label">
+                                      Total Price
+                                    </span>
+                                    <div class="slds-form-element__control">
+                                      <div class="slds-form-element__static">
+                                        $400.00
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
-                          </th>
-                          <th class="slds-line-height_reset">
-                            <div class="slds-text-title_caps" scope="col">
-                              <div class="slds-truncate slds-text-align_right" title="Unit Price">Unit Price</div>
+                            <!-- Left Panel Upgrade Preview -- !LPUP -->
+                            <div id="upgrade-preview" class="slds-hide slds-grid slds-wrap slds-grid_align-spread">
+                              <div class="slds-col slds-size_1-of-1 slds-m-bottom--medium">
+                                <div class="slds-m-top--small slds-text-heading--large slds-text-align--center">
+                                  Upgrade Preview
+                                </div>
+                                <div class="slds-m-top--xx-small slds-text-heading--small slds-text-align--center">
+                                  Lorem Ipsum -> Ultra Lorem Ipsum
+                                </div>
+                              </div>
+                              <div class="slds-col slds-size_1-of-1 slds-m-bottom--x-small">
+                                <div class="slds-form-element">
+                                  <label class="slds-form-element__label" for="basis-select">Base Price Adjustment</label>
+                                  <div class="slds-form-element__control">
+                                    <div class="slds-select_container">
+                                      <select class="slds-select" id="select-01">
+                                        <option>Reset to new List Price</option>
+                                        <option>New List Price with Existing Adjustment</option>
+                                        <option>Keep existing Base Price</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="slds-col slds-size_1-of-1 slds-grid">
+                                <div class="slds-col slds-size_1-of-2">
+                                  <div class="slds-m-bottom--small">
+                                    <span class="slds-form-element__label">
+                                      Current Adjusted Base Price
+                                    </span>
+                                    <div class="slds-form-element__control">
+                                      <div class="slds-form-element__static">
+                                        $500.00<span class="slds-text-body_small slds-text-color_weak"> / month</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                  <div class="slds-m-bottom--small">
+                                    <span class="slds-form-element__label">
+                                      New Adjusted Base Price
+                                    </span>
+                                    <div class="slds-form-element__control">
+                                      <div class="slds-form-element__static">
+                                        $1500.00<span class="slds-text-body_small slds-text-color_weak"> / month</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="slds-col slds-size_1-of-1 slds-grid">
+                                <div class="slds-col slds-size_1-of-2">
+                                  <div class="slds-m-bottom--small">
+                                    <span class="slds-form-element__label">
+                                      Current Subtotal
+                                    </span>
+                                    <div class="slds-form-element__control">
+                                      <div class="slds-form-element__static">
+                                        $18000.00<span class="slds-text-body_small slds-text-color_weak"> / year</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                  <div class="slds-m-bottom--small">
+                                    <span class="slds-form-element__label">
+                                      New Subtotal
+                                    </span>
+                                    <div class="slds-form-element__control">
+                                      <div class="slds-form-element__static">
+                                        $180000.00<span class="slds-text-body_small slds-text-color_weak"> / year</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="slds-col slds-size_1-of-1 slds-grid">
+                                <div class="slds-col slds-size_1-of-2">
+                                  <div class="slds-m-bottom--small">
+                                    <span class="slds-form-element__label">
+                                      Current Total
+                                    </span>
+                                    <div class="slds-form-element__control">
+                                      <div class="slds-form-element__static">
+                                        $16200.00<span class="slds-text-body_small slds-text-color_weak"> / year</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                  <div class="slds-m-bottom--small">
+                                    <span class="slds-form-element__label">
+                                      New Total
+                                    </span>
+                                    <div class="slds-form-element__control">
+                                      <div class="slds-form-element__static">
+                                        $162000.00<span class="slds-text-body_small slds-text-color_weak"> / year</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="slds-col slds-size_1-of-1 slds-text-align--center">
+                                <button class="slds-button slds-button_brand">Save</button>
+                                <button class="slds-button slds-button_neutral" onclick="loremselect();">Cancel</button>
+                              </div>
                             </div>
-                          </th>
-                          <th class="slds-line-height_reset">
-                            <div class="slds-text-title_caps" scope="col">
-                              <div class="slds-truncate slds-text-align_right" title="Term">Term</div>
+                          </div> <!-- END LEFT PANEL -->
+                          <div class="slds-col slds-size_2-of-3">
+                            <div class="slds-tabs_default">
+                              <ul class="slds-tabs_default__nav" role="tablist">
+                                <li id="sh-tab" class="slds-tabs_default__item slds-is-active" title="Sales History" role="presentation">
+                                  <a class="slds-tabs_default__link" href="javascript:shclick();" role="tab" tabindex="-1" aria-selected="true" aria-controls="tab-default-3" id="tab-default-3__item">Sales History</a>
+                                </li>
+                                <li id="pu-tab" class="slds-tabs_default__item" title="Product Upgrades" role="presentation">
+                                  <a class="slds-tabs_default__link" href="javascript:puclick();" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-2" id="tab-default-2__item">Product Upgrades</a>
+                                </li>
+                                <li id="pt-tab" class="slds-tabs_default__item" title="Pricing Tables" role="presentation">
+                                  <a class="slds-tabs_default__link" href="javascript:ptclick();" role="tab" tabindex="0" aria-selected="false" aria-controls="tab-default-1" id="tab-default-1__item">Pricing Tables</a>
+                                </li>
+                              </ul>
+                              <!-- Pricing Tables Content -- !PTC -->
+                              <div id="tab-default-1" class="slds-tabs_default__content slds-hide" role="tabpanel" aria-labelledby="tab-default-1__item">
+                                <div class="slds-grid slds-wrap slds-grid_align-spread">
+                                  <div class="slds-col slds-size_1-of-1 slds-border_bottom slds-p-bottom--small">
+                                    <div style="text-align: center;" class="slds-text-heading--large">
+                                      Pricing Tables
+                                    </div>
+                                  </div>
+                                  <div class="slds-col slds-size_1-of-1 slds-scrollable_x">
+                                    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                                      <thead>
+                                        <th class="slds-line-height_reset">
+                                          <div class="slds-text-title_caps" scope="col">
+                                            <div class="slds-truncate slds-text-align_right" title="Quantity">Quantity</div>
+                                          </div>
+                                        </th>
+                                        <th class="slds-line-height_reset">
+                                          <div class="slds-text-title_caps" scope="col">
+                                            <div class="slds-truncate slds-text-align_right" title="Discount Amount">Discount Amount</div>
+                                          </div>
+                                        </th>
+                                        <th class="slds-line-height_reset">
+                                          <div class="slds-text-title_caps" scope="col">
+                                            <div class="slds-truncate slds-text-align_right" title="Discount Percent">Discount Percent</div>
+                                          </div>
+                                        </th>
+                                        <th class="slds-line-height_reset">
+                                          <div class="slds-text-title_caps" scope="col">
+                                            <div class="slds-truncate slds-text-align_right" title="Tier Unit Price">Tier Unit Price</div>
+                                          </div>
+                                        </th>
+                                      </thead>
+                                      <tbody>
+                                        <tr class="slds-hint-parent">
+                                          <th data-label="Quantity" scope="row">
+                                            <div class="slds-truncate slds-text-align_right" title="1 to 2">1 to 2</div>
+                                          </th>
+                                          <td data-label="Discount Amount">
+                                            <div class="slds-truncate slds-text-align_right" title="$0.00/month">$0.00<span class="slds-text-body_small slds-text-color_weak"> / month</span></div>
+                                          </td>
+                                          <td data-label="Discount Percent" scope="row">
+                                            <div class="slds-truncate slds-text-align_right" title="0.00%">0.00%</div>
+                                          </td>
+                                          <td data-label="Tier Unit Price">
+                                            <div class="slds-truncate slds-text-align_right" title="$600.00/month">$600.00<span class="slds-text-body_small slds-text-color_weak"> / month</span></div>
+                                          </td>
+                                        </tr>
+                                        <tr style="background-color:blanchedalmond;" class="slds-hint-parent">
+                                          <th data-label="Quantity" scope="row">
+                                            <div class="slds-truncate slds-text-align_right" title="3">3 to &infin;</div>
+                                          </th>
+                                          <td data-label="Discount Amount">
+                                            <div class="slds-truncate slds-text-align_right" title="$100.00/month">$100.00<span class="slds-text-body_small slds-text-color_weak"> / month</span></div>
+                                          </td>
+                                          <td data-label="Discount Percent" scope="row">
+                                            <div class="slds-truncate slds-text-align_right" title="0.00%">0.00%</div>
+                                          </td>
+                                          <td data-label="Tier Unit Price">
+                                            <div class="slds-truncate slds-text-align_right" title="$500.00/month">$500.00<span class="slds-text-body_small slds-text-color_weak"> / month</span></div>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                  <div class="slds-col slds-size_1-of-1 slds-text-heading--medium slds-section_title slds-theme_shade slds-m-top--large">
+                                    <span class="slds-truncate slds-p-horizontal_small" title="Section Title">Quantity Details</span>
+                                  </div>
+                                  <div class="slds-col slds-size_1-of-1 slds-grid slds-grid_align-center">
+                                    <div class="slds-col size_1-of-2">
+                                      <span class="slds-form-element__label">
+                                        Quantity this sale
+                                      </span>
+                                      <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                          3
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div id="tab-default-2" class="slds-tabs_default__content slds-hide" role="tabpanel" aria-labelledby="tab-default-2__item">
+                                <div class="slds-grid slds-wrap slds-grid_align-spread">
+                                  <div class="slds-col slds-size_1-of-1 slds-border_bottom slds-p-bottom--small">
+                                    <div style="text-align: center;" class="slds-text-heading--large">
+                                      Product Upgrades
+                                    </div>
+                                  </div>
+                                  <div class="slds-col slds-size_1-of-1 slds-scrollable_x">
+                                    <!-- Product Upgrades Table -- !PUT -->
+                                    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                                      <thead>
+                                        <th class="slds-line-height_reset">
+                                          <div class="slds-text-title_caps" scope="col">
+                                            <div class="slds-truncate  slds-text-align_center" title="Product">Product</div>
+                                          </div>
+                                        </th>
+                                        <th class="slds-line-height_reset">
+                                          <div class="slds-text-title_caps" scope="col">
+                                            <div class="slds-truncate slds-text-align_center" title="Upgrade">Upgrade</div>
+                                          </div>
+                                        </th>
+                                        <th class="slds-line-height_reset">
+                                          <div class="slds-text-title_caps" scope="col">
+                                            <div class="slds-truncate slds-text-align_right" title="List Price">List Price</div>
+                                          </div>
+                                        </th>
+                                      </thead>
+                                      <tbody>
+                                        <tr class="slds-hint-parent">
+                                          <th data-label="Product" scope="row">
+                                            <div class="slds-truncate slds-text-align_center" title="Ultra Lorem Ipsum">Ultra Lorem Ipsum</div>
+                                          </th>
+                                          <td data-label="Recommendation">
+                                            <a class="recommendation-link" href="javascript:upgradeselect();">
+                                              <div id="recupgrade" class="recommendation-text recommended-button slds-truncate slds-text-align_center">
+                                                Recommended Upgrade
+                                              </div>
+                                            </a>
+                                          </td>
+                                          <td data-label="List Price" scope="row">
+                                            <div class="slds-truncate slds-text-align_right" title="$2000.00">$2000.00<span class="slds-text-body_small slds-text-color_weak"> / month</span></div>
+                                          </td>
+                                        </tr>
+                                        <tr class="slds-hint-parent">
+                                          <th data-label="Product" scope="row">
+                                            <div class="slds-truncate slds-text-align_center" title="Super Lorem Ipsum">Super Lorem Ipsum</div>
+                                          </th>
+                                          <td data-label="Recommendation">
+                                            <div class="recommendation-text recommended-button slds-truncate slds-text-align_center" title="Forced">
+                                              Forced Upgrade
+                                            </div>
+                                          </td>
+                                          <td data-label="List Price" scope="row">
+                                            <div class="slds-truncate  slds-text-align_right" title="$1000.00">$1000.00<span class="slds-text-body_small slds-text-color_weak"> / month</span></div>
+                                          </td>
+                                        </tr>
+                                        <tr class="slds-hint-parent">
+                                          <th data-label="Product" scope="row">
+                                            <div class="slds-truncate slds-text-align_center" title="Super Lorem Ipsum">Lorem Ipsum</div>
+                                          </th>
+                                          <td data-label="Recommendation">
+                                            <div class="recommendation-text slds-truncate slds-text-align_center" title="Current">
+                                              Current
+                                            </div>
+                                          </td>
+                                          <td data-label="List Price" scope="row">
+                                            <div class="slds-truncate slds-text-align_right" title="$600.00">$600.00<span class="slds-text-body_small slds-text-color_weak"> / month</span></div>
+                                          </td>
+                                        </tr>
+                                        <tr class="slds-hint-parent">
+                                          <th data-label="Product" scope="row">
+                                            <div class="slds-truncate slds-text-align_center" title="Budget Lorem Ipsum">Budget Lorem Ipsum</div>
+                                          </th>
+                                          <td data-label="Recommendation">
+                                            <div class="downgrade-button recommendation-text slds-truncate slds-text-align_center">
+                                              Available Downgrade
+                                            </div>
+                                          </td>
+                                          <td data-label="List Price" scope="row">
+                                            <div class="slds-truncate  slds-text-align_right" title="$300.00">$300.00<span class="slds-text-body_small slds-text-color_weak"> / month</span></div>
+                                          </td>
+                                        </tr>
+                                        <tr class="slds-hint-parent">
+                                          <th data-label="Product" scope="row">
+                                            <div class="slds-truncate slds-text-align_center" title="Trial Lorem Ipsum">Trial Lorem Ipsum</div>
+                                          </th>
+                                          <td data-label="Recommendation">
+                                            <div class="blocked-downgrade recommendation-text slds-truncate slds-text-align_center">
+                                              Unavailable Downgrade
+                                            </div>
+                                          </td>
+                                          <td data-label="List Price" scope="row">
+                                            <div class="slds-truncate  slds-text-align_right" title="$0.00">$0.00<span class="slds-text-body_small slds-text-color_weak"> / month</span></div>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                              <div id="tab-default-3" class="slds-tabs_default__content slds-show" role="tabpanel" aria-labelledby="tab-default-3__item">
+                                <div class="slds-grid slds-wrap slds-grid_align-spread">
+                                  <div class="slds-col slds-size_1-of-1 slds-p-bottom--small">
+                                    <div style="text-align: center;" class="slds-text-heading--large">
+                                      Sales History for Lorem Ipsum
+                                    </div>
+                                  </div>
+                                  <div class="slds-col slds-size_1-of-1 slds-scrollable_x">
+                                    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                                      <thead>
+                                        <th class="slds-line-height_reset">
+                                          <div class="slds-text-title_caps" scope="col">
+                                            <div class="slds-truncate slds-text-align_right" title="Effective Date">Effective Date</div>
+                                          </div>
+                                        </th>
+                                        <th class="slds-line-height_reset">
+                                          <div class="slds-text-title_caps" scope="col">
+                                            <div class="slds-truncate slds-text-align_right" title="End Date">End Date</div>
+                                          </div>
+                                        </th>
+                                        <th class="slds-line-height_reset">
+                                          <div class="slds-text-title_caps" scope="col">
+                                            <div class="slds-truncate slds-text-align_right" title="Unit Price">Unit Price</div>
+                                          </div>
+                                        </th>
+                                        <th class="slds-line-height_reset">
+                                          <div class="slds-text-title_caps" scope="col">
+                                            <div class="slds-truncate slds-text-align_right" title="Term">Term</div>
+                                          </div>
+                                        </th>
+                                        <th class="slds-line-height_reset">
+                                          <div class="slds-text-title_caps" scope="col">
+                                            <div class="slds-truncate slds-text-align_right" title="Sales Price">Sales Price</div>
+                                          </div>
+                                        </th>
+                                        <th class="slds-line-height_reset">
+                                          <div class="slds-text-title_caps" scope="col">
+                                            <div class="slds-truncate slds-text-align_right" title="Quantity">QTY</div>
+                                          </div>
+                                        </th>
+                                        <th class="slds-line-height_reset">
+                                          <div class="slds-text-title_caps" scope="col">
+                                            <div class="slds-truncate slds-text-align_right" title="Discount">DISC</div>
+                                          </div>
+                                        </th>
+                                        <th class="slds-line-height_reset">
+                                          <div class="slds-text-title_caps" scope="col">
+                                            <div class="slds-truncate slds-text-align_right" title="Total Price">Total Price</div>
+                                          </div>
+                                        </th>
+                                      </thead>
+                                      <tbody>
+                                        <tr class="slds-hint-parent">
+                                          <td data-label="Contract Effective Date" scope="row">
+                                            <div class="slds-truncate slds-text-align_right" title="9/21/2016">9/21/2016</div>
+                                          </td>
+                                          <td data-label="Contract End Date" scope="row">
+                                            <div class="slds-truncate slds-text-align_right" title="9/20/2017">9/20/2017</div>
+                                          </td>
+                                          <td data-label="Unit Price">
+                                            <div class="slds-truncate slds-text-align_right" title="$600.00/month">$600.00<span class="slds-text-body_small slds-text-color_weak"> / month</span></div>
+                                          </td>
+                                          <td data-label="Term" scope="row">
+                                            <div class="slds-truncate slds-text-align_right" title="12">12</div>
+                                          </td>
+                                          <td data-label="Sales Price">
+                                            <div class="slds-truncate slds-text-align_right" title="$7200.00/year">$7200.00<span class="slds-text-body_small slds-text-color_weak"> / year</span></div>
+                                            
+                                          </td>
+                                          <th data-label="Quantity" scope="row">
+                                            <div class="slds-truncate slds-text-align_right" title="1">1</div>
+                                          </th>
+                                          <th data-label="Discount" scope="row">
+                                            <div class="slds-truncate slds-text-align_right" title="10%">10%</div>
+                                          </th>
+                                          <td data-label="Total Price">
+                                            <div class="slds-truncate slds-text-align_right" title="$6480.00/year">$6480.00<span class="slds-text-body_small slds-text-color_weak"> / year</span></div>
+                                          </td>
+                                        </tr>
+                                        <tr class="slds-hint-parent">
+                                          <td data-label="Contract Effective Date" scope="row">
+                                            <div class="slds-truncate slds-text-align_right" title="9/21/2017">9/21/2017</div>
+                                          </td>
+                                          <td data-label="Contract End Date" scope="row">
+                                            <div class="slds-truncate slds-text-align_right" title="9/20/2018">9/20/2018</div>
+                                          </td>
+                                          <td data-label="Unit Price">
+                                            <div class="slds-truncate slds-text-align_right" title="$600.00/month">$600.00<span class="slds-text-body_small slds-text-color_weak"> / month</span></div>
+                                          </td>
+                                          <td data-label="Term" scope="row">
+                                            <div class="slds-truncate slds-text-align_right" title="12">12</div>
+                                          </td>
+                                          <td data-label="Sales Price">
+                                            <div class="slds-truncate slds-text-align_right" title="$7200.00/year">$7200.00<span class="slds-text-body_small slds-text-color_weak"> / year</span></div>
+                                          </td>
+                                          <th data-label="Quantity" scope="row">
+                                            <div class="slds-truncate slds-text-align_right" title="2">2</div>
+                                          </th>
+                                          <th data-label="Quantity" scope="row">
+                                            <div class="slds-truncate slds-text-align_right" title="0%">0%</div>
+                                          </th>
+                                          <td data-label="Total Price">
+                                            <div class="slds-truncate slds-text-align_right" title="$14400.00/year">$14400.00<span class="slds-text-body_small slds-text-color_weak"> / year</span></div>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
-                          </th>
-                          <th class="slds-line-height_reset">
-                            <div class="slds-text-title_caps" scope="col">
-                              <div class="slds-truncate slds-text-align_right" title="Sales Price">Sales Price</div>
-                            </div>
-                          </th>
-                          <th class="slds-line-height_reset">
-                            <div class="slds-text-title_caps" scope="col">
-                              <div class="slds-truncate slds-text-align_right" title="Quantity">QTY</div>
-                            </div>
-                          </th>
-                          <th class="slds-line-height_reset">
-                            <div class="slds-text-title_caps" scope="col">
-                              <div class="slds-truncate slds-text-align_right" title="Discount">DISC</div>
-                            </div>
-                          </th>
-                          <th class="slds-line-height_reset">
-                            <div class="slds-text-title_caps" scope="col">
-                              <div class="slds-truncate slds-text-align_right" title="Total Price">Total Price</div>
-                            </div>
-                          </th>
-                        </thead>
-                        <tbody>
-                          <tr class="slds-hint-parent">
-                            <td data-label="Contract Effective Date" scope="row">
-                              <div class="slds-truncate slds-text-align_right" title="9/21/2016">9/21/2016</div>
-                            </td>
-                            <td data-label="Contract End Date" scope="row">
-                              <div class="slds-truncate slds-text-align_right" title="9/20/2017">9/20/2017</div>
-                            </td>
-                            <td data-label="Unit Price">
-                              <div class="slds-truncate slds-text-align_right" title="$600.00/month">$600.00<span class="slds-text-body_small slds-text-color_weak"> / month</span></div>
-                            </td>
-                            <td data-label="Term" scope="row">
-                              <div class="slds-truncate slds-text-align_right" title="12">12</div>
-                            </td>
-                            <td data-label="Sales Price">
-                              <div class="slds-truncate slds-text-align_right" title="$7200.00/year">$7200.00<span class="slds-text-body_small slds-text-color_weak"> / year</span></div>
-                            </td>
-                            <th data-label="Quantity" scope="row">
-                              <div class="slds-truncate slds-text-align_right" title="1">1</div>
-                            </th>
-                            <th data-label="Discount" scope="row">
-                              <div class="slds-truncate slds-text-align_right" title="10%">10%</div>
-                            </th>
-                            <td data-label="Total Price">
-                              <div class="slds-truncate slds-text-align_right" title="$6480.00/year">$6480.00<span class="slds-text-body_small slds-text-color_weak"> / year</span></div>
-                            </td>
-                          </tr>
-                          <tr class="slds-hint-parent">
-                            <td data-label="Contract Effective Date" scope="row">
-                              <div class="slds-truncate slds-text-align_right" title="9/21/2017">9/21/2017</div>
-                            </td>
-                            <td data-label="Contract End Date" scope="row">
-                              <div class="slds-truncate slds-text-align_right" title="9/20/2018">9/20/2018</div>
-                            </td>
-                            <td data-label="Unit Price">
-                              <div class="slds-truncate slds-text-align_right" title="$600.00/month">$600.00<span class="slds-text-body_small slds-text-color_weak"> / month</span></div>
-                            </td>
-                            <td data-label="Term" scope="row">
-                              <div class="slds-truncate slds-text-align_right" title="12">12</div>
-                            </td>
-                            <td data-label="Sales Price">
-                              <div class="slds-truncate slds-text-align_right" title="$7200.00/year">$7200.00<span class="slds-text-body_small slds-text-color_weak"> / year</span></div>
-                            </td>
-                            <th data-label="Quantity" scope="row">
-                              <div class="slds-truncate slds-text-align_right" title="2">2</div>
-                            </th>
-                            <th data-label="Quantity" scope="row">
-                              <div class="slds-truncate slds-text-align_right" title="0%">0%</div>
-                            </th>
-                            <td data-label="Total Price">
-                              <div class="slds-truncate slds-text-align_right" title="$14400.00/year">$14400.00<span class="slds-text-body_small slds-text-color_weak"> / year</span></div>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
+                          </div> <!-- END RIGHT PANEL -->
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="slds-hint-parent">
+                      <td data-label="Name">
+                        <div class="slds-truncate" title="Lorem Ipsum">Perfectly Generic Object</div>
+                      </td>
+                      <td data-label="Unit Price">
+                        <span class="slds-form-element">
+                          <span class="slds-form-element__control">
+                            <input style="width: 7rem;" id="edit-price-input-2" class="slds-input edit-input" value="" type="number" />
+                          </span>
+                        </span>
+                        <span>[<a href="javascript:void(0);">$200.00</a>]</span>
+                      </td>
+                      <td></td>
+                      <td>
+                        <span class="slds-form-element">
+                          <span class="slds-form-element__control">
+                            <input style="width: 6rem;" id="edit-qty-input-2" class="slds-input edit-input" value="" type="number" />
+                          </span>
+                        </span>
+                      </td>
+                      <td>
+                        <span class="slds-form-element">
+                          <span class="slds-form-element__control">
+                            <input id="edit-discount-input-2" class="slds-input edit-input" value="" type="number" />
+                          </span>
+                        </span>
+                        <span class="slds-text-body_small slds-text-color_weak">%</span>
+                      </td>
+                      <td class="slds-text-align--right">
+                        $400.00
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </article>

@@ -210,6 +210,25 @@ const oppselect = () => {
 
 const editunhide = () => {
   document.getElementById("edit-table").classList.add('slds-hide');
+  document.getElementById("readonly-table").classList.add('slds-hide');
+  document.getElementById("editable-table").classList.remove('slds-hide');
   document.getElementById("left-panel").classList.remove('slds-hide');
   document.getElementById("right-panel").classList.remove('slds-hide');
+}
+
+function sleep(ms) {
+  console.log('sleep');
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function opentray() {
+  document.getElementById("tray").classList.add('tray-show');
+  await sleep(100);
+  document.getElementById("tray-content").classList.add('tray-content-show');
+}
+
+async function closetray() {
+  document.getElementById("tray-content").classList.remove('tray-content-show');
+  await sleep(300);
+  document.getElementById("tray").classList.remove('tray-show');
 }
