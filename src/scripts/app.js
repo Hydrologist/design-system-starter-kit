@@ -257,6 +257,17 @@ function closeline() {
   document.getElementById("visualize-tray").classList.remove('dropdown-content-show');
 }
 
+function openline2() {
+  hide('expand-button-v2');
+  unhide('close-button-v2');
+  document.getElementById("visualize-tray-2").classList.add('dropdown-content-show');
+}
+
+function closeline2() {
+  hide('close-button-v2');
+  unhide('expand-button-v2');
+  document.getElementById("visualize-tray-2").classList.remove('dropdown-content-show');
+}
 
 const applydiscount = () => {
   document.getElementById("edit-discount-input-2").setAttribute('value', 10);

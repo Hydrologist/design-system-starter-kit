@@ -146,7 +146,7 @@
                       </div>
                     </div>
                   </div>
-                  <div id="visualize-tray" class="dropdown-content slds-text-color--default">
+                  <div id="visualize-tray" class="dropdown-content slds-text-color--default" style="width: 100%;">
                     <table class="slds-table slds-table_cell-buffer slds-table_bordered">
                       <thead>
                         <th class="slds-line-height_reset" style="width: 20rem;">
@@ -293,11 +293,57 @@
                     </div>
                   </div>
                 </div>
-                <div class="slds-col slds-size_1-of-1" style="position:relative; left: 5%">
-                  <div style="height: 1.5rem;" class="slds-text-color_default slds-text-title_caps slds-p-top--xx-small slds-text-align_start">
-                    <div onclick="v3select();" id="genericline" class="non-sub-timeline">
+                <div class="slds-col slds-size_1-of-1" style="position:relative;">
+                  <span style="width: 6%;">
+                    <button id="expand-button-v2" onclick="openline2();" class="slds-button slds-m-left--xx-small slds-button_icon slds-button_icon-border" title="Expand">
+                      <svg class="slds-button__icon" aria-hidden="true">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+                      </svg>
+                      <span class="slds-assistive-text">Expand</span>
+                    </button>
+                    <button id="close-button-v2" onclick="closeline2();" class="slds-button slds-button_icon slds-button_icon-border slds-is-selected slds-hide" title="Hide">
+                      <svg class="slds-button__icon" aria-hidden="true">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                      </svg>
+                      <span class="slds-assistive-text">Hide</span>
+                    </button>
+                  </span>
+                  <span style="height: 1.5rem; width: 94%;" class="slds-text-color_default slds-text-title_caps slds-p-top--xx-small slds-text-align_start slds-m-left--large">
+                    <span id="genericline" class="non-sub-timeline">
                       Perfectly Generic Object | Qty: 2 | $400.00
-                    </div>
+                    </span>
+                  </span>
+                  <div id="visualize-tray-2" class="dropdown-content slds-text-color--default slds-m-top--x-small">
+                    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                      <thead>
+                        <th class="slds-line-height_reset" style="width: 20rem;">
+                          <div class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Product">Product</div>
+                          </div>
+                        </th>
+                        <th class="slds-line-height_reset">
+                          <div class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Start Date">Start Date</div>
+                          </div>
+                        </th>
+                      </thead>
+                      <tbody>
+                        <tr class="slds-hint-parent">
+                          <th data-label="Opportunity" scope="row">
+                            <div class="slds-truncate" title="Perfectly Generic Object">Perfectly Generic Object</div>
+                          </th>
+                          <td data-label="Start Date">
+                            <span class="slds-form-element">
+                              <label class="slds-form-element__label" for="viz-date-input-1"></label>
+                              <span class="slds-form-element__control">
+                                <input id="viz-date-input-1" class="slds-input" value="" type="date" style="width: 9rem;"/>
+                              </span>
+                            </span>
+                            <span>[<a href="javascript:void(0);">9/21/2018</a>]</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
