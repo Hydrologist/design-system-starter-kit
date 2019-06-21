@@ -245,6 +245,19 @@ async function closetray() {
   document.getElementById("tray").classList.remove('tray-show');
 }
 
+function openline() {
+  hide('expand-button-v');
+  unhide('close-button-v');
+  document.getElementById("visualize-tray").classList.add('dropdown-content-show');
+}
+
+function closeline() {
+  hide('close-button-v');
+  unhide('expand-button-v');
+  document.getElementById("visualize-tray").classList.remove('dropdown-content-show');
+}
+
+
 const applydiscount = () => {
   document.getElementById("edit-discount-input-2").setAttribute('value', 10);
 }

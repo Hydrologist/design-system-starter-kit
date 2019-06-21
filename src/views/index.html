@@ -117,22 +117,98 @@
             </div>
             <div class="slds-card__body" style="position:relative;">
               <!-- Visualize Products Timeline -- !VPT -->
-              <div id="timeline" class="slds-grid slds-grid_vertical-align-start slds-grid_align-end slds-wrap slds-scrollable_y slds-m-top--large" style="height: 10rem; position: relative; z-index: 1;">
-                <div class="slds-col slds-m-bottom--large" style="width: 94%; position: sticky; top: 0; right: 1%">
-                  <div onclick="oppselect();" id="oppline" class="opportunity-timeline slds-text-align--center slds-text-title_caps slds-grid slds-grid_align-spread">
-                    <div class="slds-col slds-text-title_caps slds-m-left--xx-small">
-                      9/21/2018
-                    </div>
-                    <div class="slds-col slds-text-title_caps">
-                      Opportunity: Lipsum - Renewal - 2019
-                    </div>
-                    <div class="slds-col slds-text-title_caps slds-m-right--xx-small">
-                      9/20/2019
+              <div id="timeline" class="slds-grid slds-grid_vertical-align-start slds-grid_align-end slds-wrap slds-m-top--large" style="position: relative; z-index: 1;">
+                <span style="width: 6%">
+                  <button id="expand-button-v" onclick="openline();" class="slds-button slds-m-left--xx-small slds-button_icon slds-button_icon-border" title="Expand">
+                    <svg class="slds-button__icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Expand</span>
+                  </button>
+                  <button id="close-button-v" onclick="closeline();" class="slds-button slds-button_icon slds-button_icon-border slds-is-selected slds-hide" title="Hide">
+                    <svg class="slds-button__icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Hide</span>
+                  </button>
+                </span>
+                <span class="dropdown slds-m-bottom--large" style="width: 94%; right: 1%;">
+                  <div class="slds-col" style="width: 100%; position: sticky; top: 0; right: 1%; z-index: 5;">
+                    <div id="oppline" class="opportunity-timeline slds-text-align--center slds-text-title_caps slds-grid slds-grid_align-spread">
+                      <div class="slds-col slds-text-title_caps slds-m-left--xx-small">
+                        9/21/2018
+                      </div>
+                      <div class="slds-col slds-text-title_caps">
+                        Opportunity: Lipsum - Renewal - 2019
+                      </div>
+                      <div class="slds-col slds-text-title_caps slds-m-right--xx-small">
+                        9/20/2019
+                      </div>
                     </div>
                   </div>
-                </div>
+                  <div id="visualize-tray" class="dropdown-content slds-text-color--default">
+                    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                      <thead>
+                        <th class="slds-line-height_reset" style="width: 20rem;">
+                          <div class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Opportunity">Opportunity</div>
+                          </div>
+                        </th>
+                        <th class="slds-line-height_reset">
+                          <div class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Start Date">Start Date</div>
+                          </div>
+                        </th>
+                        <th class="slds-line-height_reset">
+                          <div class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="End Date">End Date</div>
+                          </div>
+                        </th>
+                        <th class="slds-line-height_reset">
+                          <div class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Term">Term</div>
+                          </div>
+                        </th>
+                      </thead>
+                      <tbody>
+                        <tr class="slds-hint-parent">
+                          <th data-label="Opportunity" scope="row">
+                            <div class="slds-truncate" title="Lipsum - Renewal - 2019">Lipsum - Renewal - 2019</div>
+                          </th>
+                          <td data-label="Start Date">
+                            <span class="slds-form-element">
+                              <label class="slds-form-element__label" for="viz-date-input-1"></label>
+                              <span class="slds-form-element__control">
+                                <input id="viz-date-input-1" class="slds-input" value="" type="date" style="width: 9rem;"/>
+                              </span>
+                            </span>
+                            <span>[<a href="javascript:void(0);">9/21/2018</a>]</span>
+                          </td>
+                          <td data-label="End Date" scope="row">
+                            <span class="slds-form-element">
+                              <label class="slds-form-element__label" for="viz-date-input-2"></label>
+                              <span class="slds-form-element__control">
+                                <input id="viz-date-input-2" class="slds-input" value="" type="date" style="width: 9rem;"/>
+                              </span>
+                            </span>
+                            <span>[<a href="javascript:void(0);">9/20/2019</a>]</span>
+                          </td>
+                          <td data-label="Term">
+                            <span class="slds-form-element">
+                              <label class="slds-form-element__label" for="viz-term-input-1"></label>
+                              <span class="slds-form-element__control">
+                                <input id="viz-term-input-1" class="slds-input" value="" type="number" style="width: 9rem;"/>
+                              </span>
+                            </span>
+                            <span>[<a href="javascript:void(0);">12</a>]</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </span>
                 <div class="slds-col slds-m-bottom--medium" style="width: 94%; position: relative; right: 1%">
-                  <div onclick="v1select();" id="loremline" class="sub-timeline sub-timeline-active slds-text-color_inverse slds-text-title_caps slds-text-align_center slds-grid slds-grid_align-spread dropdown">
+                  <div id="loremline" class="sub-timeline sub-timeline-active slds-text-color_inverse slds-text-title_caps slds-text-align_center slds-grid slds-grid_align-spread dropdown">
                     <div class="slds-col slds-m-left--xx-small slds-m-top--xx-small">
                       9/21/2018
                     </div>
@@ -142,8 +218,65 @@
                     <div class="slds-col slds-m-right--xx-small slds-m-top--xx-small">
                       9/20/2019
                     </div>
-                    <div class="dropdown-content">
-                      test
+                    <div class="dropdown-content slds-text-color--default slds-hide">
+                      <table class="slds-table slds-table_cell-buffer slds-table_bordered" style="width:100%">
+                        <thead>
+                          <th class="slds-line-height_reset" style="width: 20rem;">
+                            <div class="slds-text-title_caps" scope="col">
+                              <div class="slds-truncate" title="Product">Product</div>
+                            </div>
+                          </th>
+                          <th class="slds-line-height_reset">
+                            <div class="slds-text-title_caps" scope="col">
+                              <div class="slds-truncate" title="Start Date">Start Date</div>
+                            </div>
+                          </th>
+                          <th class="slds-line-height_reset">
+                            <div class="slds-text-title_caps" scope="col">
+                              <div class="slds-truncate" title="End Date">End Date</div>
+                            </div>
+                          </th>
+                          <th class="slds-line-height_reset">
+                            <div class="slds-text-title_caps" scope="col">
+                              <div class="slds-truncate" title="Term">Term</div>
+                            </div>
+                          </th>
+                        </thead>
+                        <tbody>
+                          <tr class="slds-hint-parent">
+                            <th data-label="Product" scope="row">
+                              <div class="slds-truncate" title="Lorem Ipsum">Lorem Ipsum</div>
+                            </th>
+                            <td data-label="Start Date">
+                              <span class="slds-form-element">
+                                <label class="slds-form-element__label" for="viz-date-input-3"></label>
+                                <span class="slds-form-element__control">
+                                  <input id="viz-date-input-3" class="slds-input" value="" type="date" style="width: 9rem;"/>
+                                </span>
+                              </span>
+                              <span>[<a href="javascript:void(0);">9/21/2018</a>]</span>
+                            </td>
+                            <td data-label="End Date" scope="row">
+                              <span class="slds-form-element">
+                                <label class="slds-form-element__label" for="viz-date-input-4"></label>
+                                <span class="slds-form-element__control">
+                                  <input id="viz-date-input-4" class="slds-input" value="" type="date" style="width: 9rem;"/>
+                                </span>
+                              </span>
+                              <span>[<a href="javascript:void(0);">9/20/2019</a>]</span>
+                            </td>
+                            <td data-label="Term">
+                              <span class="slds-form-element">
+                                <label class="slds-form-element__label" for="viz-term-input-2"></label>
+                                <span class="slds-form-element__control">
+                                  <input id="viz-term-input-2" class="slds-input" value="" type="number" style="width: 9rem;"/>
+                                </span>
+                              </span>
+                              <span>[<a href="javascript:void(0);">12</a>]</span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </div>
@@ -172,77 +305,10 @@
           </article>
         </div>
         <!-- Visualize Products Products -- !VPP -->
-        <div class="slds-col slds-size_1-of-1 slds-p-right--xx-small">
+        <div class="slds-col slds-size_1-of-1 slds-p-right--xx-small slds-hide">
           <article class="slds-card slds-m-bottom--small" style="position:relative; overflow: hidden;">
             <div class="slds-grid slds-wrap slds-grid_align-spread">
               <div class="slds-col slds-size_1-of-1 slds-scrollable_x">
-                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
-                  <thead>
-                    <th style="width:3.5rem;"></th>
-                    <th class="slds-line-height_reset" style="width: 20rem;">
-                      <div class="slds-text-title_caps" scope="col">
-                        <div class="slds-truncate" title="Opportunity">Opportunity</div>
-                      </div>
-                    </th>
-                    <th class="slds-line-height_reset">
-                      <div class="slds-text-title_caps" scope="col">
-                        <div class="slds-truncate" title="Start Date">Start Date</div>
-                      </div>
-                    </th>
-                    <th class="slds-line-height_reset">
-                      <div class="slds-text-title_caps" scope="col">
-                        <div class="slds-truncate" title="End Date">End Date</div>
-                      </div>
-                    </th>
-                    <th class="slds-line-height_reset">
-                      <div class="slds-text-title_caps" scope="col">
-                        <div class="slds-truncate" title="Term">Term</div>
-                      </div>
-                    </th>
-                  </thead>
-                  <tbody>
-                    <tr class="slds-hint-parent">
-                      <td class="slds-text-align_center">
-                        <span class="slds-radio">
-                          <input id="vradio-4" name="vproducts" value="vradio-4" type="radio" onclick="oppselect();" />
-                          <label class="slds-radio__label" for="vradio-4">
-                            <span class="slds-radio_faux"></span>
-                          </label>
-                        </span>
-                      </td>
-                      <th data-label="Opportunity" scope="row">
-                        <div class="slds-truncate" title="Lipsum - Renewal - 2019">Lipsum - Renewal - 2019</div>
-                      </th>
-                      <td data-label="Start Date">
-                        <span class="slds-form-element">
-                          <label class="slds-form-element__label" for="viz-date-input-1"></label>
-                          <span class="slds-form-element__control">
-                            <input id="viz-date-input-1" class="slds-input" value="" type="date" style="width: 9rem;"/>
-                          </span>
-                        </span>
-                        <span>[<a href="javascript:void(0);">9/21/2018</a>]</span>
-                      </td>
-                      <td data-label="End Date" scope="row">
-                        <span class="slds-form-element">
-                          <label class="slds-form-element__label" for="viz-date-input-2"></label>
-                          <span class="slds-form-element__control">
-                            <input id="viz-date-input-2" class="slds-input" value="" type="date" style="width: 9rem;"/>
-                          </span>
-                        </span>
-                        <span>[<a href="javascript:void(0);">9/20/2019</a>]</span>
-                      </td>
-                      <td data-label="Term">
-                        <span class="slds-form-element">
-                          <label class="slds-form-element__label" for="viz-term-input-1"></label>
-                          <span class="slds-form-element__control">
-                            <input id="viz-term-input-1" class="slds-input" value="" type="number" style="width: 9rem;"/>
-                          </span>
-                        </span>
-                        <span>[<a href="javascript:void(0);">12</a>]</span>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
                 <table class="slds-table slds-table_cell-buffer slds-table_bordered">
                   <thead>
                     <th style="width:3.5rem;"></th>
